@@ -1,0 +1,11 @@
+.DS_Store
+*.log
+node_modules/
+*.bat
+*.sh
+web/
+.idea/
+*.py
+public/
+docs/.vuepress/.temp/
+docs/.vuepress/.cache/
