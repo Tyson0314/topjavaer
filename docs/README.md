@@ -1,48 +1,67 @@
 ---
 home: true
-layout: Blog
 icon: home
-title: Blog Home
-heroImage: /logo.svg
-heroText: the name of your blog
-tagline: You can put your slogan here
-heroFullScreen: true
+title: 主页
+heroImage: /logo.png
+heroText: 程序员大彬
+tagline: 非科班自学转码之路
+actions:
+  - text: 来不及了，快上车 💡
+    link: /java/java-basic.md
+    type: primary
+features:
+  - title: 经典计算机书籍
+    icon: repo
+    details: 大彬精心整理200本经典计算机书籍
+    link: https://github.com/Tyson0314/java-books
+  - title: Leetcode算法笔记
+    icon: note
+    details: 谷歌师兄整理的Leetcode算法笔记
+    link: https://www.topjavaer.cn/learning-resources/leetcode-note.html
 projects:
-  - icon: project
-    name: project name
-    desc: project detailed description
-    link: https://your.project.link
+  - name: java-books
+    desc: 经典计算机书籍电子版
+    link: https://github.com/Tyson0314/java-books
+    icon: /assets/img/vuepress.png
 
-  - icon: link
-    name: link name
-    desc: link detailed description
-    link: https://link.address
+  - name: Leetcode算法手册
+    desc: Leetcode算法手册
+    link: https://www.topjavaer.cn/learning-resources/leetcode-note.html
+    icon: /assets/img/vuepress-hope-logo.svg
 
-  - icon: book
-    name: book name
-    desc: Detailed description of the book
-    link: https://link.to.your.book
 
-  - icon: article
-    name: article name
-    desc: Detailed description of the article
-    link: https://link.to.your.article
-
-  - icon: friend
-    name: friend name
-    desc: Detailed description of friend
-    link: https://link.to.your.friend
-
-  - icon: /logo.svg
-    name: custom item
-    desc: Detailed description of this custom item
-    link: https://link.to.your.friend
-
-footer: customize your footer text
+footer: '<a href="/other/site-diary.html">关于网站</a>'
 ---
 
-This is a blog home page demo.
 
-To use this layout, you should set both `layout: Blog` and `home: true` in the page front matter.
 
-For related configuration docs, please see [blog homepage](https://vuepress-theme-hope.github.io/v2/guide/blog/home/).
+大彬是**非科班**出身，大三开始自学Java，校招斩获**京东、携程、华为**等offer。作为一名转码选手，深感这一路的不易。
+
+**希望我的分享可以帮助更多的小伙伴，我踩过的坑你们不要再踩**！
+
+[<img src="https://img.shields.io/badge/Wechat-微信交流群-success">](http://img.dabin-coder.cn/image/微信群.png)
+[<img src="https://img.shields.io/badge/公众号-程序员大彬-orange">](https://mp.weixin.qq.com/s?__biz=Mzg2OTY1NzY0MQ==&mid=2247488751&idx=1&sn=507e27534b6ea5f4b3771b30e1fcf57e&chksm=ce98e9a9f9ef60bfbf1370899b49181bae5247e5935714f7ad9e3d06c0028a25c0bfc34d4441#rd)
+[<img src="https://img.shields.io/badge/哔哩哔哩-我是大彬呀-pink">](https://space.bilibili.com/1729916794)
+[<img src="https://img.shields.io/badge/知乎-程序员大彬-blue">](https://www.zhihu.com/people/dai-shu-bin-13)
+[<img src="https://img.shields.io/badge/PDF-免费计算机电子书籍-green">](https://github.com/Tyson0314/java-books)
+
+## 秋招提前批信息汇总
+
+[秋招提前批及正式批信息汇总（含内推）](https://docs.qq.com/sheet/DYW9ObnpobXNRTXpq?tab=BB08J2)
+
+## 面试手册电子版
+
+本网站所有内容已经汇总成**PDF电子版**，需要电子版的小伙伴，可以在公众号【**程序员大彬**】后台回复【**面试**】，即可获取~
+
+## 学习路线
+
+![](http://img.dabin-coder.cn/image/20220530232715.png)
+
+> 微信搜索【程序员大彬】，回复【学习路线】获取**高清图**
+
+## 参与贡献
+
+1. 如果您对本项目有任何建议或发现文中内容有误的，欢迎提交 issues 进行指正。
+2. 对于文中我没有涉及到知识点，欢迎提交 PR。
+3. 如果您有文章推荐请以 markdown 格式到邮箱 `1713476357@qq.com`，
+[中文技术文档的写作规范指南](https://github.com/ruanyf/document-style-guide)。

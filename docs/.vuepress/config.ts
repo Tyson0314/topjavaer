@@ -1,12 +1,65 @@
-import { defineUserConfig } from "vuepress";
+import {defineUserConfig} from "vuepress";
 import theme from "./theme";
+import {copyright} from "vuepress-theme-hope";
+import {sitemapPlugin} from "vuepress-plugin-sitemap2";
+import { photoSwipePlugin } from "vuepress-plugin-photo-swipe";
+import { readingTimePlugin } from "vuepress-plugin-reading-time2";
+//import { baiduAutoPush } from "vuepress-plugin-baidu-autopush";
+// const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
+const { nprogressPlugin } = require('@vuepress/plugin-nprogress')
 
 export default defineUserConfig({
-  lang: "zh-CN",
-  title: "����Ա���",
-  description: "��ѧת��֮·",
+    lang: "zh-CN",
+    title: "程序员大彬",
+    description: "自学转码之路",
+    base: "/",
+    dest: './public',
+    theme,
 
-  base: "/",
+    head: [
+        [
+            'meta', { name: 'baidu-site-verification', content: 'code-mtJaPDeFwy' },
+            // 'meta', { name: 'google-site-verification', content: 'eGgkbT6uJR-WQeSkhhcB6RbnZ2RtF5poPf1ai-Fgmy8' },
+        ],
+        [
+            'script', {}, `
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?f9b36644dd9e756e508a77f272a63e07";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		`
+        ],
+    ],
 
-  theme,
-});
+    //plugins: [
+    //    copyright({
+    //        disableCopy: true,
+    //        global: true,
+    //        disableSelection: true,
+    //        author: "大彬",
+    //        license: "MIT",
+    //        hostname: "https://www.topjavaer.cn",
+    //    }),
+    //    [
+    //        'vuepress-plugin-baidu-autopush'
+    //    ],
+    //    sitemapPlugin({
+    //        // 配置选项
+    //        hostname: "https:www.topjavaer.cn"
+    //    }),
+    //    photoSwipePlugin({
+    //        // 你的选项
+    //    }),
+    //    readingTimePlugin({
+    //        // 你的选项
+    //    }),
+    //    [
+    //        nprogressPlugin(),
+    //    ],
+    //    //['@vuepress/nprogress'],
+    //],
+})
+;
