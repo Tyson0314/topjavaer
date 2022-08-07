@@ -17,6 +17,13 @@ export default sidebar({
             children: getChildren('./docs/redis', 'redis-basic'),
         },
     ],
+    "/advance/design-pattern/": [
+        {
+            title: "设计模式",
+            collapsable: false,
+            children: getChildren('./docs/advance', 'design-pattern'),
+        },
+    ],
     //'/': "auto", //不能放在数组第一个，否则会导致右侧栏无法使用
     //"/",
     //"/home",

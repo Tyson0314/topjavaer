@@ -2,6 +2,20 @@
 
 在此记录下小破站的迭代更新记录。
 
+## 更新记录
+
+- 2022.08.07，网站改版
+
+  改版前首页UI：
+
+  ![](http://img.dabin-coder.cn/image/小破站0721.png)
+
+  改版后首页UI：
+
+  ![](http://img.dabin-coder.cn/image/image-20220807174428791.png)
+
+- 2022.08.02，增加部分场景设计题目
+
 - 2022.07.31，应粉丝要求，增加暗黑模式~很贴心有木有！
 
   ![](http://img.dabin-coder.cn/image/image-20220801004603404.png)

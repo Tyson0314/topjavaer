@@ -10,7 +10,14 @@ export default navbar([
         icon: "home",
     },
     {
-        text: "秋招来啦（内推）", link: "https://docs.qq.com/sheet/DYW9ObnpobXNRTXpq"
+        text: "秋招",
+        icon: "campus",
+        children: [
+            {text: "秋招内推", link: "https://docs.qq.com/sheet/DYW9ObnpobXNRTXpq"},
+            {text: "简历应该这么写", link: "/campus-recruit/resume.md"},
+            {text: "项目经验介绍", link: "/campus-recruit/project-experience.md"},
+            {text: "编程语言", link: "/campus-recruit/java-or-golang.md"},
+        ],
     },
     {
         text: "Java",
@@ -25,7 +32,7 @@ export default navbar([
     },
     {
         text: "框架中间件",
-        icon: "note",
+        icon: "framework",
         children: [
             {
                 text: "框架",
@@ -59,7 +66,7 @@ export default navbar([
     },
     {
         text: "数据库",
-        icon: "database",
+        icon: "db",
         children: [
             {
                 text: "关系型数据库",
@@ -82,7 +89,7 @@ export default navbar([
     },
     {
         text: "分布式",
-        icon: "software",
+        icon: "distribute",
         children: [
             {text: "全局唯一ID", link: "/distributed/global-unique-id.md"},
             {text: "分布式锁", link: "/distributed/distributed-lock.md"},
@@ -93,13 +100,14 @@ export default navbar([
     },
     {
         text: "编程内功",
-        icon: "luxian",
+        icon: "win",
         children: [
-            {text: "设计模式", link: "/advance/design-pattern.md"}
+            {text: "设计模式", link: "/advance/design-pattern/"}
         ]
     },
     {
         text: "场景题&系统设计",
+        icon: "design",
         children: [
             {
                 text: "海量数据",
@@ -140,7 +148,7 @@ export default navbar([
     },
     {
         text: "珍藏资源",
-        icon: "shoucang",
+        icon: "collection",
         children: [
             {
                 text: "学习资源",
@@ -160,9 +168,12 @@ export default navbar([
         ]
     },
     {
-        text: "网站日记",
-        icon: "guanyu",
-        link: "/other/site-diary.md"
+        text: "关于",
+        icon: "about",
+        children: [
+            {text: "关于我", link: "/about/introduce.md"},
+            {text: "网站日记", link: "/other/site-diary.md"},
+        ]
     },
 
 
