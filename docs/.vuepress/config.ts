@@ -1,12 +1,6 @@
 import {defineUserConfig} from "vuepress";
 import theme from "./theme";
-import {copyright} from "vuepress-theme-hope";
-import {sitemapPlugin} from "vuepress-plugin-sitemap2";
-import { photoSwipePlugin } from "vuepress-plugin-photo-swipe";
-import { readingTimePlugin } from "vuepress-plugin-reading-time2";
-//import { baiduAutoPush } from "vuepress-plugin-baidu-autopush";
-// const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
-const { nprogressPlugin } = require('@vuepress/plugin-nprogress')
+
 
 export default defineUserConfig({
     lang: "zh-CN",
