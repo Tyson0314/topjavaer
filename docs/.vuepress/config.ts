@@ -1,5 +1,6 @@
 import {defineUserConfig} from "vuepress";
 import theme from "./theme";
+const { searchPlugin } = require('@vuepress/plugin-search')
 
 
 export default defineUserConfig({
@@ -28,6 +29,11 @@ export default defineUserConfig({
         ],
     ],
 
+    plugins: [
+        searchPlugin({
+            // 配置项
+        }),
+    ],
     //plugins: [
     //    copyright({
     //        disableCopy: true,
