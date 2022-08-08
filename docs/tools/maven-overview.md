@@ -1,20 +1,20 @@
-## 简介
+# 简介
 
 Maven 是强大的构建工具，能够帮我们自动化构建过程--清理、编译、测试、打包和部署。比如测试，我们无需告诉 maven 如何去测试，只需遵循 maven 的约定编写好测试用例，当我们运行构建的时候，这些测试就会自动运行。
 
 Maven 不仅是构建工具，还是一个依赖管理工具和项目信息管理工具。它提供了中央仓库，能帮助我们自动下载构件。
 
-### 配置
+## 配置
 
 配置用户范围 settings.xml。M2_HOME/conf/settings.xml 是全局范围的，而~/.m2/settings.xml 是用户范围的。配置成用户范围便于 Maven 升级。若直接修改 conf 目录下的 settings.xml，每次 Maven 升级时，都需要直接 settings.xml 文件。
 
 
 
-## 入门
+# 入门
 
-### 编写测试代码
+## 编写测试代码
 
-#### 添加 junit 依赖
+## 添加 junit 依赖
 
 ```xml
     <dependencies>
@@ -29,7 +29,7 @@ Maven 不仅是构建工具，还是一个依赖管理工具和项目信息管�
 
 maven 会自动访问中央仓库，下载 junit 依赖。scope 为 test 表明依赖只对测试有效，即测试代码中的 import JUnit 代码没有问题，而主代码中使用 import  JUnit 代码，则会产生编译错误。
 
-#### 编译
+## 编译
 
 主类 HelloWorld
 
@@ -48,7 +48,7 @@ public class HelloWorld {
 
 clean 清理输出目录/target，compile 编译项目主代码。
 
-#### 测试代码
+## 测试代码
 
 ```java
 public class HelloWorldTest {
@@ -60,9 +60,9 @@ public class HelloWorldTest {
 }
 ```
 
-#### 执行测试
+## 执行测试
 
-#### `mvn clean test`
+`mvn clean test`
 
 测试结果：
 
@@ -74,7 +74,7 @@ Running com.tyson.test.HelloWorldTest
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 sec
 ```
 
-#### 打包和安装
+## 打包和安装
 
 打包：`mvn clean package `将项目代码打包成 jar 包，位于/target 目录。
 
@@ -114,7 +114,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 sec
 
 
 
-## 依赖
+# 依赖
 
 ```xml
 <dependency>
@@ -131,7 +131,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 sec
 
 - exclusions：用来排除传递性依赖
 
-### 依赖范围 scope
+## 依赖范围 scope
 
 maven 在编译、测试和运行项目时会使用不同的 classpath（编译classpath、测试 classpath、运行 classpath）。依赖范围就是用来控制依赖和这三种 classpath 的关系。maven 中有以下几种依赖范围：
 
@@ -143,7 +143,7 @@ maven 在编译、测试和运行项目时会使用不同的 classpath（编译c
 - import：导入依赖范围  [import 导入依赖管理](#import-导入依赖管理)
 
 
-### 传递性依赖
+## 传递性依赖
 
 假如项目 account 有一个 compile 范围的 spring-core 依赖，而 spring-core 有一个 compile 范围的 common-logging 依赖，那么 common-logging 就会成为 account 的 compile 范围依赖，common-logging 是 account 的一个传递性依赖。maven 会直接解析各个直接依赖的 POM，将那些必要的间接依赖，以传递性依赖的形式引入到项目中。
 
@@ -151,13 +151,13 @@ spring-core 是 account 的第一直接依赖，common-logging 是 spring-core �
 
 ![](http://img.dabin-coder.cn/image/传递性依赖.png)
 
-### 排除依赖
+## 排除依赖
 
 传递性依赖可能会带来一些问题，像引入一些类库的 SNAPSHOT 版本，会影响到当前项目的稳定性。此时可以通过 exclusions 元素声明排除传递性依赖，exclusions 元素可以包含一个或多个 exclusion 元素，因此可以排除多个传递性依赖。声明 exclusion 时只需要 groupId 和 artifactId，而不需要 version 元素。
 
 ![](http://img.dabin-coder.cn/image/排查依赖.png)
 
-### 优化依赖
+## 优化依赖
 
 查看当前项目的依赖：`mvn dependency:list`
 
@@ -167,19 +167,19 @@ spring-core 是 account 的第一直接依赖，common-logging 是 spring-core �
 
 
 
-## 仓库
+# 仓库
 
 仓库分为两类：本地仓库和远程仓库。当 maven 根据坐标去寻找构件时，首先会去本地仓库查找，如果本地仓库不存在这个构件，maven 就会去远程仓库查找，下载到本地仓库。若远程仓库也没有这个构件，则会报错。
 
 私服是一种特殊的远程仓库，是在局域网内架设的私有的仓库服务器，用其代理所有外部的远程仓库，内部的项目还能部署到私服上供其他项目使用。
 
-### 本地仓库
+## 本地仓库
 
 要想自定义本地仓库地址，可以修改 C:\Users\Tyson\\.m2 下的 settings.xml 文件（默认不存在，需要到 maven 安装目录复制），不建议直接修改 maven 安装目录下的 settings.xml 文件。
 
 通过`mvn clean install`可以将本地项目安装到本地库，以供其他项目使用。
 
-### 远程仓库
+## 远程仓库
 
 当默认的中央仓库无法满足项目需要，可以通过 repositories 元素在 POM 中配置远程仓库。maven 中央仓库 id 为 central，若其他仓库 id 命名为 central，则会覆盖中央仓库的配置。
 
@@ -187,7 +187,7 @@ spring-core 是 account 的第一直接依赖，common-logging 是 spring-core �
 
 maven中的仓库分为两种，snapshot 快照仓库和 release 发布仓库。元素 releases 的 enabled 为 true 表示开启 Jboss 仓库 release 版本下载支持，maven 会从 Jboss 仓库下载 release 版本的构件。
 
-#### 认证和部署
+## 认证和部署
 
 有些远程仓库需要认证才能访问，可以在 settings.xml 中配置认证信息（更为安全）。
 
@@ -230,7 +230,7 @@ server元素的id要和pom.xml里需要认证的repository元素的id对应一�
 
 配置完 distributionManagement 之后，在命令行运行`mvn clean deploy`，maven 就会将项目构建输出的构件部署到对应的远程仓库，如果项目当前版本是快照版本，则部署到快照版本仓库地址，否则部署到发布版本仓库地址。
 
-### 镜像
+## 镜像
 
 mirrorsOf 配置为 central，表示其为中央仓库的镜像，任何对中央仓库的请求都会转发到这个镜像。
 
@@ -255,11 +255,11 @@ mirrorsOf 配置为 central，表示其为中央仓库的镜像，任何对中�
 
 
 
-## 生命周期
+# 生命周期
 
 项目构建过程包括：清理项目- 编译-测试-打包-部署
 
-### 三套生命周期
+## 三套生命周期
 
 clean 生命周期：pre-clean、clean 和 post-clean；
 
@@ -267,7 +267,7 @@ default 生命周期；
 
 site 生命周期：pre-site、site、post-site 和 site-deploy
 
-### 命令行与生命周期
+## 命令行与生命周期
 
 `mvn clean`：调用 clean 生命周期的 clean 阶段，实际上执行的是 clean 的 pre-clean 和 clean 阶段；
 
@@ -279,17 +279,17 @@ site 生命周期：pre-site、site、post-site 和 site-deploy
 
 
 
-## 插件
+# 插件
 
 maven 的生命周期和插件相互绑定，用以完成具体的构建任务。
 
-### 内置绑定
+## 内置绑定
 
 ![](http://img.dabin-coder.cn/image/maven内置绑定1.png)
 
 ![](http://img.dabin-coder.cn/image/maven内置绑定2.png)
 
-### 自定义绑定
+## 自定义绑定
 
 内置绑定无法完成一些任务，如创建项目的源码 jar 包，此时需要用户自行配置。maven-source-plugin 可以完成这个任务，它的 jar-no-fork 目标能够将项目的主代码打包成 jar 文件，可以将其绑定到 default 生命周期的 verify 阶段，在执行完测试和安装构件之前创建源码 jar 包。
 
@@ -314,13 +314,13 @@ maven 的生命周期和插件相互绑定，用以完成具体的构建任务�
     </build>
 ```
 
-### 命令行插件配置
+## 命令行插件配置
 
 maven-surefire-plugin 提供了一个 maven.test.skip 参数，当其值为 true 时，就会跳过执行测试。
 
 `mvn install -Dmaven.test.skip=true` -D 是 Java 自带的。
 
-### 插件全局配置
+## 插件全局配置
 
 有些参数值从项目创建到发布都不会改变，可以在 pom 中一次性配置，避免重新在命令行输入。如配置 maven-compiler-plugin ，生成与 JVM1.5 兼容的字节码文件。
 
@@ -342,7 +342,7 @@ maven-surefire-plugin 提供了一个 maven.test.skip 参数，当其值为 true
 
 
 
-## 聚合
+# 聚合
 
 项目有多个模块时，使用一个聚合体将这些模块聚合起来，通过聚合体就可以一次构建全部模块。
 
@@ -359,7 +359,7 @@ accout-aggregator 的版本号要跟各个模块版本号相同，packaging 的�
 
 
 
-## 继承
+# 继承
 
 使用聚合体的 pom 文件作为公共 pom 文件，配置子模块的共同依赖，消除配置的重复。其中packaging 的值必须是 pom。
 
@@ -401,7 +401,7 @@ accout-aggregator 的版本号要跟各个模块版本号相同，packaging 的�
 </project>
 ```
 
-### 依赖管理
+## 依赖管理
 
 使用dependencyManagement可以统一管理项目的版本号，确保应用的各个项目的依赖和版本一致，不用每个模块项目都弄一个版本号，不利于管理，当需要变更版本号的时候只需要在父类容器里更新，不需要任何一个子项目的修改；如果某个子项目需要另外一个特殊的版本号时，只需要在自己的模块dependencies中声明一个版本号即可。子类就会使用子类声明的版本号，不继承于父类版本号。
 
@@ -492,7 +492,7 @@ springframework 依赖的 version 继承自父模块，可以省略，可避免�
 
 ![](http://img.dabin-coder.cn/image/使用import依赖范围导入依赖管理配置.png)
 
-### 插件管理
+## 插件管理
 
 maven 提供了 pluginManagement 元素帮助管理插件。当项目中的多个模块有相同的插件配置时，应当将配置移到父 pom 的 pluginManagement 元素中，方便统一项目中的插件版本。
 
@@ -529,11 +529,3 @@ account-parent 的 pluginManagement 配置：
 ```
 
 
-
-## 测试
-
-maven 通过插件 maven-surefire-plugin 来执行 JUnit 或者 TestNG 的测试用例。默认情况下，maven-surefire-plugin 的 test 目标会自动执行测试源码路径下（src/test/java/）所有符合命名模式（*/Test\*.java、\*/*Test.java、\*/\*TestCase.java）的测试类。
-
-### 跳过测试
-
-`mvn package -DskipTests`

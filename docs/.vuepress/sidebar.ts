@@ -24,6 +24,27 @@ export default sidebar({
             children: getChildren('./docs/advance', 'design-pattern'),
         },
     ],
+    "/tools/docker/": [
+        {
+            title: "Docker基础",
+            collapsable: false,
+            children: getChildren('./docs/tools', 'docker'),
+        },
+    ],
+    "/tools/git/": [
+        {
+            title: "Git基础",
+            collapsable: false,
+            children: getChildren('./docs/tools', 'git'),
+        },
+    ],
+    "/tools/maven/": [
+        {
+            title: "Maven基础",
+            collapsable: false,
+            children: getChildren('./docs/tools', 'maven'),
+        },
+    ],
     //'/': "auto", //不能放在数组第一个，否则会导致右侧栏无法使用
     //"/",
     //"/home",

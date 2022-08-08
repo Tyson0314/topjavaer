@@ -131,9 +131,9 @@ export default navbar([
             {
                 text: "开发工具",
                 children: [
-                    {text: "Git详解", link: "/tools/git-overview.md"},
-                    {text: "Maven详解", link: "/tools/maven-overview.md"},
-                    {text: "Docker详解", link: "https://mp.weixin.qq.com/s/ATkZwtw4EF9erGJ4PamTjQ"},
+                    {text: "Git详解", link: "/tools/git/"},
+                    {text: "Maven详解", link: "/tools/maven/"},
+                    {text: "Docker详解", link: "/tools/docker/"},
                     {text: "Nginx面试题", link: "https://mp.weixin.qq.com/s/SKKEeYxif0wWJo6n57rd6A"},
                     {text: "Linux常用命令", link: "https://mp.weixin.qq.com/s/GbTaa3_qs1KvgUD3S2307w"},
                 ]

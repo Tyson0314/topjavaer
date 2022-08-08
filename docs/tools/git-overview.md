@@ -349,11 +349,11 @@ assume-unchanged:
   git ls-files -v | grep '^h\ '
   ```
 
-## 远程仓库
+# 远程仓库
 
 远程仓库是指托管在网络中的项目版本库。
 
-### 查看远程仓库
+## 查看远程仓库
 
 查看远程仓库地址：
 
@@ -363,7 +363,7 @@ origin https://github.com/schacon/ticgit (fetch)
 origin https://github.com/schacon/ticgit (push)
 ```
 
-### 添加远程仓库
+## 添加远程仓库
 
 运行 `git remote add <shortname> <url>` 添加远程 Git 仓库，同时指定一个简写名称。
 
@@ -381,7 +381,7 @@ git remote add pb https://github.com/paulboone/ticgit
 git remote remove origin
 ```
 
-### 给origin设置多个远程仓库
+## 给origin设置多个远程仓库
 
 如果想要给origin设置两个远程仓库地址（git add会报错），可以使用`git remote set-url --add origin url`来设置。
 
@@ -393,7 +393,7 @@ $ git remote set-url --add origin xxx.git
 #success
 ```
 
-### 修改远程仓库
+## 修改远程仓库
 
 修改远程仓库地址：
 
@@ -401,7 +401,7 @@ $ git remote set-url --add origin xxx.git
 git remote set-url origin git@github.com:Tyson0314/Blog.git
 ```
 
-### pull 和 fetch
+## pull 和 fetch
 
 从远程仓库获取数据：
 
@@ -418,7 +418,7 @@ git pull = git fetch + git merge FETCH_HEAD
 git pull --rebase =  git fetch + git rebase FETCH_HEAD 
 ```
 
-### 本地仓库上传git服务器
+## 本地仓库上传git服务器
 
 ```bash
 git init # 将目录变成本地仓库
@@ -431,7 +431,7 @@ git push -u origin master  # 如果当前分支与多个主机存在追踪关系
 ```
 
 
-### 推送到远程仓库
+## 推送到远程仓库
 
 推送使用命令：`git push [remote-name] [branch-name]`
 
@@ -439,13 +439,13 @@ git push -u origin master  # 如果当前分支与多个主机存在追踪关系
 git push origin master
 ```
 
-### 查看远程仓库
+## 查看远程仓库
 
 ```bash
 git remote show origin
 ```
 
-### 远程仓库移除和命名
+## 远程仓库移除和命名
 
 移除远程仓库：
 
@@ -459,7 +459,7 @@ git remote rm paul
 git remote rename old-name new-name
 ```
 
-## 标签
+# 标签
 
 给历史的某个提交打标签，如标记发布节点（v1.0等）。
 
@@ -476,13 +476,13 @@ tag标签可以帮助我们回退到某个版本的代码，我们通过tag的�
 - 回退到某个版本：git reset --hard commitId
 - 获取远程分支：git fetch origin tag V2.0
 
-### 创建标签
+## 创建标签
 
 Git 使用两种主要类型的标签：轻量标签（lightweight）与附注标签（annotated）。一个轻量标签很像一个不会改变的分支 - 它只是一个特定提交的引用。然而，附注标签是存储在 Git 数据库中的一个完整对象。 它们是可以被校验的；其中包含打标签者的名字、电子邮件地址、日期时间；还有一个标签信息；并且可以使用 GNU Privacy Guard （GPG）签名与验证。 通常建议创建附注标签。
 
 创建的标签都只存储在本地，不会自动推送到远程。
 
-#### 附注标签
+## 附注标签
 
 添加附注标签：
 
@@ -494,7 +494,7 @@ git tag -a v1.4 -m 'my version 1.4'
 
 使用 `git show v1.4` 命令可以看到标签信息和对应的提交信息。
 
-#### 轻量标签
+## 轻量标签
 
 添加轻量标签：
 
@@ -504,7 +504,7 @@ git tag v1.4-tyson
 
  此时运行 `git show v1.4-tyson`不会看到额外的标签信息，只显示提交信息。
 
-### 推送标签
+## 推送标签
 
 推送某个标签到远程，使用命令：
 
@@ -524,7 +524,7 @@ git push origin --tags
 git push origin :refs/tags/<tagname>
 ```
 
-### 后期打标签
+## 后期打标签
 
 比如给下面的这个提交（ `modified readme.md` ）打标签：` git tag -a v1.2 c1285b`
 
@@ -537,7 +537,7 @@ ba8e8a5fb932014b4aaf9ccd3163affb7699d475 renamed
 d2ffb8c33978295aed189f5854857bc4e7b55358 add readme.md
 ```
 
-### 共享标签
+## 共享标签
 
 git push 命令并不会传送标签到远程仓库服务器上。在创建完标签后你必须显式地推送标签到共享服务器上：
 
@@ -551,27 +551,13 @@ git push origin v1.5
 git push origin --tags
 ```
 
-### 检出标签
+## 检出标签
 
 如果你想要工作目录与仓库中特定的标签版本完全一样，可以使用 `git checkout -b [branchname] [tagname]` 在特定的标签上创建一个新分支：
 
 ```bash
 $ git checkout -b version2 v2.0.0
 Switched to a new branch 'version2'
-```
-
-## git 别名
-
-取消暂存别名：
-
-```bash
-git config --global alias.unstage 'reset HEAD --'
-```
-
-最后一次提交：
-
-```bash
-git config --global alias.last 'log -1 HEAD'
 ```
 
 # git 分支
@@ -677,16 +663,16 @@ merge操作会生成一个新的节点，之前的提交分开显示。
 pick c38e7ae rebase content
 s 595ede1 rebase
 
-# Rebase 8824682..595ede1 onto 8824682 (2 commands)
-#
-# Commands:
-# p, pick = use commit
-# r, reword = use commit, but edit the commit message
-# e, edit = use commit, but stop for amending
-# s, squash = use commit, but meld into previous commit
-# f, fixup = like "squash", but discard this commit's log message
-# x, exec = run command (the rest of the line) using shell
-# d, drop = remove commit
+-- Rebase 8824682..595ede1 onto 8824682 (2 commands)
+
+-- Commands:
+-- p, pick = use commit
+-- r, reword = use commit, but edit the commit message
+-- e, edit = use commit, but stop for amending
+-- s, squash = use commit, but meld into previous commit
+-- f, fixup = like "squash", but discard this commit's log message
+-- x, exec = run command (the rest of the line) using shell
+-- d, drop = remove commit
 ```
 
 `s 595ede1 rebase`会将595ede1合到前一个commit，按下`:wq`之后会弹出对话框，合并commit message。

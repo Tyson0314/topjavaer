@@ -4,7 +4,7 @@
 
 作为一名转码选手，深感这一路的不易。坚持分享自学Java经历、后端技术和面试经验等，希望能帮助到更多的小伙伴，**我踩过的坑你们不要再踩**。想与大彬交流的话，可以添加大彬的私人微信~
 
-![](http://img.dabin-coder.cn/image/公众号.jpg)
+![](http://img.dabin-coder.cn/image/个人微信索隆.jpg)
 
 著有『 [**大厂面试**](http://mp.weixin.qq.com/s?__biz=Mzg2OTY1NzY0MQ==&mid=2247488109&idx=1&sn=fd3ec79355505543a295df15845b936f&chksm=ce98ef2bf9ef663de7f5da18a5fae346672a758b4c43a9c8f34edbe20bca529adad4c6f73804&scene=21#wechat_redirect) 』专栏，已经帮助不少小伙伴上岸互联网大厂了，干货满满。
 
