@@ -20,7 +20,7 @@ export default hopeTheme({
 
     logo: "/logo.svg",
 
-    repo: "Tyson0314/topjavaer",
+    repo: "Tyson0314/Java-learning",
 
     docsDir: "docs",
 
@@ -37,7 +37,7 @@ export default hopeTheme({
     pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 
     blog: {
-        description: "野生程序员",
+        description: "优质八股文选手",
         intro: "https://mp.weixin.qq.com/s/84ZDT5d9TIbnyg-jeRKIIA",
         medias: {
             Github: "https://github.com/Tyson0314",
