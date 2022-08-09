@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ![](http://img.dabin-coder.cn/image/Java集合.jpg)
 
 ## 常见的集合有哪些？

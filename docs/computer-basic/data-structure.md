@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ![](http://img.dabin-coder.cn/image/数据结构与算法.jpg)
 
 ## 各种数据结构应用场景

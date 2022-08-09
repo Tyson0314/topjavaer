@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ![](http://img.dabin-coder.cn/image/MySQL知识点总结.jpg)
 
 ## 事务的四大特性？

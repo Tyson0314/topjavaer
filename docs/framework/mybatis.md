@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ## Mybatis是什么？
 
 - MyBatis框架是一个开源的数据持久层框架。

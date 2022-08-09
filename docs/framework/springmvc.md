@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ## 说说你对 SpringMVC 的理解
 
 SpringMVC是一种基于 Java 的实现MVC设计模型的请求驱动类型的轻量级Web框架，属于Spring框架的一个模块。

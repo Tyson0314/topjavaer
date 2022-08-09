@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ## 简介
 
 访问baidu.com的过程：

@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ## 什么是RabbitMQ？
 
 RabbitMQ是一个由erlang开发的消息队列。消息队列用于应用间的异步协作。

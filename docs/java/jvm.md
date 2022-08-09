@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ![](http://img.dabin-coder.cn/image/JVM知识点总结.jpg)
 
 ## 讲一下JVM内存结构？

@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ![](http://img.dabin-coder.cn/image/并发与多线程知识点总结.jpg)
 
 ## 线程池

@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ![](http://img.dabin-coder.cn/image/Redis知识点.jpg)
 
 ## Redis是什么？

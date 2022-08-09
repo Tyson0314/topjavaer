@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 分享一道腾讯面试算法题目（LeetCode62题）
 
 # 题目描述

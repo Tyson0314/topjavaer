@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ![](http://img.dabin-coder.cn/image/计算机网络知识.jpg)
 
 ## 网络分层结构

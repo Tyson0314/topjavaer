@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ## 为什么要使用分布式锁
 
 在单机环境下，当存在多个线程可以同时改变某个变量（可变共享变量）时，就会出现线程安全问题。这个问题可以通过 JAVA 提供的 volatile、ReentrantLock、synchronized 以及 concurrent 并发包下一些线程安全的类等来避免。

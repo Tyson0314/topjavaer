@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 使用 explain 输出 SELECT 语句执行的详细信息，包括以下信息：
 
 - 表的加载顺序

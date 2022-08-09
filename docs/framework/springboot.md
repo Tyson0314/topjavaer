@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 ## Springboot的优点
 
 - 内置servlet容器，不需要在服务器部署 tomcat。只需要将项目打成 jar 包，使用 java -jar xxx.jar一键式启动项目
