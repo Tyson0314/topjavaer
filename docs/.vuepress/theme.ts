@@ -16,7 +16,7 @@ export default hopeTheme({
 
     darkmode: "toggle",
 
-    fullscreen: true,
+    fullscreen: false,
 
     logo: "/logo.svg",
 
@@ -60,28 +60,28 @@ export default hopeTheme({
         // If you don't need comment feature, you can remove following option
         // The following config is for demo ONLY, if you need comment feature, please generate and use your own config, see comment plugin documentation for details.
         // To avoid disturbing the theme developer and consuming his resources, please DO NOT use the following config directly in your production environment!!!!!
-        comment: {
-            /**
-             * Using Giscus
-             */
-            provider: "Giscus",
-            repo: "Tyson0314/topjavaer",
-            repoId: "R_kgDOHxs_3g",
-            category: "Announcements",
-            categoryId: "DIC_kwDOHxs_3s4CQpxA",
-
-            /**
-             * Using Twikoo
-             */
-            // provider: "Twikoo",
-            // envId: "https://twikoo.ccknbc.vercel.app",
-
-            /**
-             * Using Waline
-             */
-            // provider: "Waline",
-            // serverURL: "https://vuepress-theme-hope-comment.vercel.app",
-        },
+        //comment: {
+        //    /**
+        //     * Using Giscus
+        //     */
+        //    provider: "Giscus",
+        //    repo: "Tyson0314/topjavaer",
+        //    repoId: "R_kgDOHxs_3g",
+        //    category: "Announcements",
+        //    categoryId: "DIC_kwDOHxs_3s4CQpxA",
+//
+        //    /**
+        //     * Using Twikoo
+        //     */
+        //    // provider: "Twikoo",
+        //    // envId: "https://twikoo.ccknbc.vercel.app",
+//
+        //    /**
+        //     * Using Waline
+        //     */
+        //    // provider: "Waline",
+        //    // serverURL: "https://vuepress-theme-hope-comment.vercel.app",
+        //},
 
         mdEnhance: {
             enableAll: true,

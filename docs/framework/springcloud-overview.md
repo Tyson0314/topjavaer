@@ -1,4 +1,4 @@
-## 基础知识
+# 基础知识
 
 微服务是将一个原本独立的系统拆分成多个小型服务，这些小型服务都在各自独立的进程中运行。
 
@@ -46,7 +46,7 @@ springcloud是一个基于Spring Boot实现的微服务架构开发工具。spri
 
 spring-boot-starter-actuator：该模块能够自动为Spring Boot 构建的应用提供一系列用于监控的端点。
 
-## 说说对SpringBoot 和SpringCloud的理解
+# 说说对SpringBoot 和SpringCloud的理解
 
 - SpringBoot专注于快速方便的开发单个个体微服务。
 - SpringCloud是关注全局的微服务协调整理治理框架，它将SpringBoot开发的一个个单体微服务整合并管理起来，为各个微服务之间提供，配置管理、服务发现、断路器、路由、微代理、事件总线、全局锁、决策竞选、分布式会话等等集成服务
@@ -55,19 +55,19 @@ spring-boot-starter-actuator：该模块能够自动为Spring Boot 构建的应�
 
 Spring Boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud离不开Spring Boot，属于依赖的关系。
 
-## Spring Cloud Eureka
+# Spring Cloud Eureka
 
 Spring Cloud Eureka实现微服务架构中的服务治理功能，使用 Netflix Eureka 实现服务注册与发现，包含客户端组件和服务端组件。服务治理是微服务架构中最为核心和基础的模块。
 
 Eureka 服务端就是服务注册中心。Eureka 客户端用于处理服务的注册和发现。客户端服务通过注解和参数配置的方式，嵌入在客户端应用程序的代码中， 在应用程序运行时，Eureka客户端向注册中心注册自身提供的服务并周期性地发送心跳来更新它的服务租约。同时，它也能从服务端查询当前注册的服务信息并把它们缓存到本地并周期性地刷新服务状态。
 
-### 服务注册与发现
+## 服务注册与发现
 
 服务注册：在微服务架构中往往会有一个注册中心，每个微服务都会向注册中心去注册自己的地址及端口信息，注册中心维护着服务名称与服务实例的对应关系。每个微服务都会定时从注册中心获取服务列表，同时汇报自己的运行情况，这样当有的服务需要调用其他服务时，就可以从自己获取到的服务列表中获取实例地址进行调用。
 
 服务发现：服务间的调用不是通过直接调用具体的实例地址，而是通过服务名发起调用。调用方需要向服务注册中心咨询服务，获取服务的实例清单，从而访问具体的服务实例。
 
-### 代码实例
+## 代码实例
 
 添加依赖：
 
@@ -110,14 +110,14 @@ eureka:
 
 运行EurekaServerApplication，访问地址http://localhost:8001/可以看到Eureka注册中心的界面。
 
-### 高可用注册中心
+## 高可用注册中心
 
 注册中心互相注册，形成一组互相注册的服务注册中心， 以实现服务清单的互相同步， 达到高可用的效果。
 
 创建application-replica1.yml和 application-replica2.yml：
 
 ```yaml
-# application-replica1.yml
+-- application-replica1.yml
 server:
   port: 8002
 spring:
@@ -133,7 +133,7 @@ eureka:
    
     register-with-eureka: true
     
-# application-replica2.yml
+-- application-replica2.yml
 server:
   port: 8002
 spring:
@@ -172,7 +172,7 @@ eureka.client.serviceUrl.defaultZone=http://localhost:8002/eureka/, http://local
 
 
 
-## Spring Cloud Ribbon
+# Spring Cloud Ribbon
 
 Spring Cloud Ribbon 是基于HTTP和TCP的客户端负载均衡工具，基于Netflix Ribbon实现。Spring Cloud Ribbon 会**将REST请求转换为客户端负载均衡的服务调用**。
 
@@ -183,11 +183,11 @@ Spring Cloud Ribbon 是基于HTTP和TCP的客户端负载均衡工具，基于Ne
 1. 服务提供者启动多个服务实例注册到服务注册中心；
 2. 服务消费者直接通过调用被@LoadBalanced 注解修饰过的RestTemplate 来实现面向服务的接口调用。
 
-### RestTemplate
+## RestTemplate
 
 RestTemplate是一个HTTP客户端，使用它我们可以方便的调用HTTP接口，支持GET、POST、PUT、DELETE等方法。
 
-### 代码实例
+## 代码实例
 
 创建hello-service模块，用于给 Ribbon 提供服务调用。
 
@@ -304,11 +304,11 @@ com.tyson.helloservice.HelloController   : /hello, host:DESKTOP-8F30VS1, service
 
 
 
-## Spring Cloud Hystrix
+# Spring Cloud Hystrix
 
 在微服务架构中，服务与服务之间通过远程调用的方式进行通信，一旦某个被调用的服务发生了故障，其依赖服务也会发生故障，此时就会发生故障的蔓延，最终导致系统瘫痪。Hystrix实现了断路器模式，当某个服务发生故障时，通过断路器的监控，给调用方返回一个错误响应，而不是长时间的等待，这样就不会使得调用方由于**长时间得不到响应而占用线程**，从而防止故障的蔓延。Hystrix具备服务降级、服务熔断、线程隔离、请求缓存、请求合并及服务监控等强大功能。
 
-### 代码实例
+## 代码实例
 
 创建 hystrix-service 模块。添加相关依赖：
 
@@ -386,11 +386,11 @@ public CommonResult getDefaultUser(@PathVariable Long id) {
 
 
 
-## Spring Cloud Feign
+# Spring Cloud Feign
 
 基于Netflix Feign 实现，整合了Spring Cloud Ribbon 与Spring Cloud Hystrix， 它提供了一种声明式服务调用的方式。
 
-### 负载均衡功能
+## 负载均衡功能
 
 添加依赖：
 
@@ -469,7 +469,7 @@ public class HelloFeignController {
 
 启动eureka-service，多个hello-service，feign-service服务，多次调用http://localhost:8701/feign/hello/进行测试。
 
-### 服务降级功能
+## 服务降级功能
 
 开启Hystrix功能：
 
@@ -506,7 +506,7 @@ public interface HelloService {
 
 
 
-## Spring Cloud Zuul
+# Spring Cloud Zuul
 
 API网关，为微服务架构中的服务提供了统一的访问入口，客户端通过API网关访问相关服务。所有客户端的访问都通过它来进行路由及过滤。它实现了请求路由、负载均衡、校验过滤、服务容错、服务聚合等功能。
 
@@ -554,7 +554,7 @@ public class ZuulProxyApplication {
 }
 ```
 
-### 路由规则
+## 路由规则
 
 将匹配`/userService/**`的请求路由到user-service服务上去，匹配`/feignService/**`的请求路由到feign-service上去。：
 
@@ -569,7 +569,7 @@ zuul:
 
 访问`http://localhost:8801/userService/user/1`可以发现请求路由到了user-service上了。
 
-### 访问前缀
+## 访问前缀
 
 给网关路径添加前缀。
 
@@ -580,7 +580,7 @@ zuul:
 
 需要访问`http://localhost:8801/proxy/user-service/user/1`才能访问到user-service中的接口。
 
-### header过滤
+## header过滤
 
 默认情况下， Spring Cloud Zuul在请求路由时， 会过滤掉HTTP请求头信息中的一些敏感信息， 防止它们被传递到下游服务。默认的敏感头信息通过zuul.sensitiveHeaders参数定义，包括Cookie、Set-Cookie、Authorization三个属性。这样的话，由于Cookie等信息被过滤掉，会导致应用无法登录和鉴权。为了避免这种情况，可以将敏感头设置为空。
 
@@ -598,7 +598,7 @@ zuul.routes.<router>.customSensitiveHeaders=true
 zuul.routes.<router>.sensitiveHeaders=
 ```
 
-### 重定向
+## 重定向
 
 [zuul重定向问题](https://blog.csdn.net/wo18237095579/article/details/83540829)
 
@@ -606,11 +606,11 @@ zuul.routes.<router>.sensitiveHeaders=
 
 ```yaml
 zuul:
-  # 此处解决后端服务重定向导致用户浏览的 host 变成 后端服务的 host 问题
+  -- 此处解决后端服务重定向导致用户浏览的 host 变成 后端服务的 host 问题
   add-host-header: true
 ```
 
-### 查看路由信息
+## 查看路由信息
 
 通过SpringBoot Actuator来查看Zuul中的路由信息。
 
@@ -660,11 +660,11 @@ management:
 }
 ```
 
-### 过滤器
+## 过滤器
 
 路由与过滤是Zuul的两大核心功能，路由功能负责将外部请求转发到具体的服务实例上去，是实现统一访问入口的基础，过滤功能负责对请求过程进行额外的处理，是请求校验过滤及服务聚合的基础。
 
-#### 过滤器类型
+**过滤器类型**
 
 Zuul中有以下几种典型的过滤器类型。
 
@@ -673,7 +673,7 @@ Zuul中有以下几种典型的过滤器类型。
 - post：在请求被路由到目标服务后执行，比如给目标服务的响应添加头信息，收集统计数据等功能；
 - error：请求在其他阶段发生错误时执行。
 
-#### 自定义过滤器
+**自定义过滤器**
 
 添加PreLogFilter类继承ZuulFilter。在请求被转发到目标服务前打印请求日志。
 
@@ -728,7 +728,7 @@ public class PreLogFilter extends ZuulFilter {
 Remote host:0:0:0:0:0:0:0:1,method:GET,uri:/proxy/userService/user/1
 ```
 
-#### 禁用过滤器
+**禁用过滤器**
 
 在application.yml配置：
 
@@ -739,7 +739,7 @@ zuul:
       disable: true 
 ```
 
-### Ribbon和Hystrix的支持
+## Ribbon和Hystrix的支持
 
 由于Zuul自动集成了Ribbon和Hystrix，所以Zuul天生就有负载均衡和服务容错能力，我们可以通过Ribbon和Hystrix的配置来配置Zuul中的相应功能。
 
@@ -763,7 +763,7 @@ zuul:
     ReadTimeout: 3000 #服务请求处理超时时间（毫秒）
   ```
 
-### 常用配置
+## 常用配置
 
 ```yaml
 zuul:
@@ -784,7 +784,7 @@ zuul:
 
 
 
-## Spring Cloud Gateway
+# Spring Cloud Gateway
 
 为 SpringBoot 应用提供了API网关支持，具有强大的智能路由与过滤器功能。
 
@@ -797,7 +797,7 @@ zuul:
 </dependency>
 ```
 
-### 配置路由
+## 配置路由
 
 Gateway 提供了两种不同的方式用于配置路由，一种是通过yml文件来配置，另一种是通过Java Bean来配置。
 
@@ -840,11 +840,11 @@ Gateway 提供了两种不同的方式用于配置路由，一种是通过yml文
 
    使用http://localhost:9201/user/getByUsername?username=macro测试。
 
-### Route Predicate
+## Route Predicate
 
 Spring Cloud Gateway包括许多内置的Route Predicate工厂。 所有这些Predicate都与HTTP请求的不同属性匹配。 多个Route Predicate工厂可以进行组合。
 
-#### After Route Predicate
+**After** Route Predicate
 
 在指定时间之后的请求会匹配该路由。
 
@@ -859,7 +859,7 @@ spring:
             - After=2019-09-24T16:30:00+08:00[Asia/Shanghai]
 ```
 
-#### Cookie Route Predicate
+**Cookie Route Predicate**
 
 带有指定Cookie的请求会匹配该路由。
 
@@ -880,7 +880,7 @@ spring:
 curl http://localhost:9201/user/1 --cookie "username=tyson"
 ```
 
-#### Header Route Predicate
+**Header Route Predicate**
 
 带有指定请求头的请求会匹配该路由。
 
@@ -901,7 +901,7 @@ spring:
 curl http://localhost:9201/user/1 -H "X-Request-Id:123" 
 ```
 
-#### Host Route Predicate
+**Host Route Predicate**
 
 带有指定Host的请求会匹配该路由。
 
@@ -922,11 +922,11 @@ spring:
 curl http://localhost:9201/user/1 -H "Host:www.macrozheng.com" 
 ```
 
-### Route Filter
+## Route Filter
 
 路由过滤器可用于修改进入的HTTP请求和返回的HTTP响应，路由过滤器只能指定路由进行使用。Spring Cloud Gateway 内置了多种路由过滤器，他们都由GatewayFilter的工厂类来产生。
 
-#### AddRequestParameter GatewayFilter
+**AddRequestParameter GatewayFilter**
 
 给请求添加参数的过滤器。
 
@@ -955,7 +955,7 @@ curl http://localhost:9201/user/getByUsername
 curl http://localhost:8201/user/getByUsername?username=macro
 ```
 
-#### StripPrefix GatewayFilter
+**StripPrefix GatewayFilter**
 
 对指定数量的路径前缀进行去除的过滤器。
 
@@ -980,7 +980,7 @@ curl http://localhost:9201/user-service/a/user/1
 
 相当于发起请求：curl http://localhost:8201/user/1
 
-#### PrefixPate GatewayFilter
+**PrefixPate GatewayFilter**
 
 与StripPrefix过滤器恰好相反，会对原有路径进行增加操作的过滤器。
 
@@ -999,7 +999,7 @@ spring:
 
 以上配置会对所有GET请求添加`/user`路径前缀。
 
-#### Hystrix GatewayFilter
+**Hystrix GatewayFilter**
 
 将断路器功能添加到网关路由中，使服务免受级联故障的影响，并提供服务降级处理。
 
@@ -1029,7 +1029,7 @@ public class FallbackController {
 }
 ```
 
-#### RequestRateLimiter GatewayFilter
+**RequestRateLimiter GatewayFilter**
 
 用于限流，使用RateLimiter实现来确定是否允许当前请求继续进行，如果请求太大默认会返回HTTP 429-太多请求状态。
 
@@ -1089,7 +1089,7 @@ logging:
 
 多次请求该地址：http://localhost:9201/user/1 ，会返回状态码为429的错误。
 
-#### Retry GatewayFilter
+**Retry GatewayFilter**
 
 对路由请求进行重试的过滤器，可以根据路由请求返回的HTTP状态码来确定是否进行重试。
 
@@ -1114,9 +1114,9 @@ spring:
               basedOnPreviousValue: false
 ```
 
-### 结合注册中心使用
+## 结合注册中心使用
 
-#### 使用动态路由
+**使用动态路由**
 
 以服务名为路径创建动态路由。
 
@@ -1154,7 +1154,7 @@ logging:
 
 使用application-eureka.yml配置文件启动api-gateway服务，访问http://localhost:9201/user-service/user/1 ，可以路由到user-service的http://localhost:8201/user/1 处。
 
-#### 使用过滤器
+**使用过滤器**
 
 在结合注册中心使用过滤器的时候，需要注意的是uri的协议为`lb`，这样才能启用Gateway的负载均衡功能。
 
@@ -1191,11 +1191,11 @@ logging:
 
 
 
-## Spring Cloud Config
+# Spring Cloud Config
 
 Spring Cloud Config分为服务端和客户端。服务端也称为分布式配置中心，它是个独立的微服务应用，用于从配置仓库获取配置信息供客户端使用。而客户端则是微服务架构中的各个微服务应用或者基础设施，可以从配置中心获取配置信息，在启动时加载配置。Spring Cloud Config 的配置中心默认采用Git来存储配置信息。
 
-### 准备配置信息
+## 准备配置信息
 
 在Git仓库中添加好配置文件。
 
@@ -1206,7 +1206,7 @@ config:
   info: "config info for dev(master)"
 ```
 
-### 配置中心
+## 配置中心
 
 创建config-server模块，在pom.xml中添加依赖：
 
@@ -1256,7 +1256,7 @@ public class ConfigServerApplication {
 }
 ```
 
-### 获取配置信息
+## 获取配置信息
 
 访问http://localhost:8901/master/config-dev来获取master分支上dev环境的配置信息。
 
@@ -1336,7 +1336,7 @@ public class ConfigClientController {
 
 启动config-client服务，访问http://localhost:9001/configInfo，可以获取到dev分支下dev环境的配置。
 
-### 刷新配置
+## 刷新配置
 
 当Git仓库中的配置信息更改后，我们可以通过SpringBoot Actuator的refresh端点来刷新客户端配置信息。
 
@@ -1380,7 +1380,7 @@ public class ConfigClientController {
 
 访问http://localhost:9001/configInfo进行测试，可以发现配置信息已经刷新。
 
-### 安全认证
+## 安全认证
 
 创建config-security-server模块，在pom.xml中添加相关依赖：
 
@@ -1439,7 +1439,7 @@ spring:
 
 使用application-security.yml启动config-client服务。访问http://localhost:9002/configInfo进行测试。
 
-### 配置中心集群
+## 配置中心集群
 
 在微服务架构中，所有服务都从配置中心获取配置，配置中心一旦宕机，会发生很严重的问题。通过搭建配置中心集群避免该问题。
 
@@ -1465,13 +1465,13 @@ spring:
 
    
 
-## Spring Cloud Bus
+# Spring Cloud Bus
 
 我们通常会使用消息代理来构建一个主题，然后把微服务架构中的所有服务都连接到这个主题上去，当我们向该主题发送消息时，所有订阅该主题的服务都会收到消息并进行消费。使用 Spring Cloud Bus 可以方便地构建起这套机制，所以 Spring Cloud Bus 又被称为消息总线。Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷新。
 
 
 
-## Spring Cloud Security
+# Spring Cloud Security
 
 Spring Cloud Security 为构建安全的SpringBoot应用提供了一系列解决方案，结合Oauth2可以实现单点登录、令牌中继、令牌交换等功能。
 

@@ -1,6 +1,6 @@
-## 简介
+# 简介
 
-### netty 核心组件
+## netty 核心组件
 
 - Channel：传入和传出数据的载体，它可以连接或者断开连接。
 
@@ -8,25 +8,25 @@
 - Future：提供了另一种在操作完成时通知应用程序的方式。
 - 事件和 ChannelHandler
 
-### NIO
+## NIO
 
 当一个 socket 建立好之后，Thread 会把这个连接请求交给 Selector，Selector 会不断去遍历所有的 Socket，一旦有一个 Socket 建立完成，它就会通知 Thread，然后 Thread 处理完数据在返回给客户端，这个过程是不阻塞的。
 
 
 
-## 简单的 netty 应用程序
+# 简单的 netty 应用程序
 
 Echo 客户端和服务器之间的交互是非常简单的；在客户端建立一个连接之后，它会向服务
 器发送一个或多个消息，反过来，服务器又会将每个消息回送给客户端。
 
-### Echo 服务器
+## Echo 服务器
 
 所有的 netty 服务器都需要以下两个部分：
 
 - 一个 ChannelHandler，实现服务器对接受的客户端的数据的处理
 - 引导服务器：配置服务器的启动代码，将服务器绑定到它要监听连接请求的端口上
 
-#### ChannelHandler 和业务逻辑
+**ChannelHandler 和业务逻辑**
 
 Echo 服务器需要实现 ChannelInboundHandler 方法，定义响应入站事件的方法。
 
@@ -55,7 +55,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
 ChannelHandler 有助于保持业务逻辑与网络处理代码的分离。
 
-#### 引导服务器
+**引导服务器**
 
 1. 服务器监听端口；
 2. 配置 Channel，将有关的入站事件消息通知给 EchoServerHandler。
@@ -101,7 +101,7 @@ public class EchoServer {
 }
 ```
 
-### Echo 客户端
+## Echo 客户端
 
 Echo 客户端的功能：
 
@@ -110,7 +110,7 @@ Echo 客户端的功能：
 3. 接收服务器发送的消息；
 4. 关闭连接。
 
-#### ChannelHandler
+**ChannelHandler**
 
 客户端也需要实现 ChannelInboundHandler，用于处理数据。
 
@@ -140,7 +140,7 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 }
 ```
 
-#### 引导客户端
+**引导客户端**
 
 客户端使用主机和端口参数来连接远程地址。
 
@@ -190,7 +190,7 @@ public class EchoClient {
 }
 ```
 
-### 构建和运行 Echo 服务器和客户端
+## 构建和运行 Echo 服务器和客户端
 
 在服务器端，使用`mvn clean package`构建项目，然后在 idea 中配置 Edit Configurations，带参数运行服务器程序。
 
@@ -200,7 +200,7 @@ public class EchoClient {
 
 
 
-## Netty 的组件和设计
+# Netty 的组件和设计
 
 Channel -- Socket；
 
@@ -210,11 +210,11 @@ ChannelFuture -- 异步通知；
 
 ChannelHandler -- 处理出站和入站数据；
 
-### Channel 接口
+## Channel 接口
 
 Netty 的Channel 接口所提供的API，大大地降低了直接使用Socket 类的复杂性。
 
-### EventLoop 接口
+## EventLoop 接口
 
 EventLoop 用于处理连接的生命周期中所发生的事件。
 
@@ -228,11 +228,11 @@ Channel 和 EventLoop 的关系：Channel 会被注册到 EventLoop 上，在整
 
 一个给定 Channel 的I/O 操作都是由相同的Thread 执行的，实际上消除了对于同步的需要。
 
-### ChannelFuture 接口
+## ChannelFuture 接口
 
 Netty 中所有 io 操作都是异步的，ChannelFuture 接口用于在操作完成时得到通知。
 
-### ChannelHandler
+## ChannelHandler
 
 ChannelHandler 的方法是由网络事件触发的。典型用途：
 
@@ -244,7 +244,7 @@ ChannelHandler 的方法是由网络事件触发的。典型用途：
 
 一些适配器类提供了 ChannelHandler 接口中的所有方法的默认实现。
 
-### ChannelPipeline
+## ChannelPipeline
 
 提供了 ChannelHandler 链的容器。当 Channel 被创建时，会被自动分配到它专属的 ChannelPipeline。
 
@@ -254,7 +254,7 @@ ChannelHandler 的方法是由网络事件触发的。典型用途：
 
 当ChannelHandler 被添加到ChannelPipeline 时，它将会被分配一个ChannelHandlerContext，其代表了ChannelHandler 和ChannelPipeline 之间的绑定。虽然这个对象可以被用于获取底层的Channel，但是它主要还是被用于写出站数据。
 
-### ChannelInitializer
+## ChannelInitializer
 
 作用是给 ChannelPipeline 安装 ChannelHandler。
 
@@ -264,15 +264,15 @@ ChannelHandler 安装到 ChannelPipeline 的过程：
 - 当ChannelInitializer.initChannel()方法被调用时，ChannelInitializer 将在 ChannelPipeline 中安装ChannelHandler；
 - ChannelInitializer 将它自己从ChannelPipeline 中移除。
 
-### 引导
+## 引导
 
 Bootstrap 连接远程主机和端口，有一个 EventLoopGroup；ServerBootstrap 绑定到一个本地端口，有两个 EventLoopGroup。
 
 
 
-## 传输
+# 传输
 
-### 传输迁移
+## 传输迁移
 
 Netty 为所有的传输提供了通用的 API，使得从阻塞传输到非阻塞传输的转换变得更加简单。
 
@@ -311,13 +311,13 @@ public class NettyNioServer {
 
 只需要改动 SocketChannel 和 EventLoopGroup。
 
-### 传输 API
+## 传输 API
 
 每个 ChannelHandler 都会分配一个 ChannelPipeline 和 ChannelConfig。ChannelConfig 包含了该 Channel 的所有配置设置，并且支持热更新。
 
 可以通过向 ChannelPipeline 添加 ChannelHandler 实例来增加应用程序的功能。
 
-### 内置的传输
+## 内置的传输
 
 Channel 被注册到选择器 Selector 后，当 Channel 状态发生变化时可以得到通知。可能的状态变化有：
 
@@ -330,29 +330,25 @@ Channel 被注册到选择器 Selector 后，当 Channel 状态发生变化时�
 > 高效地将数据从文件系统移动到网络接口，而不需要将其从内核空间复制到用户空间，其在像FTP 或者
 > HTTP 这样的协议中可以显著地提升性能。它只能传输文件的原始内容，不能传输加密或者压缩的文件。
 
-#### Epoll
+**Epoll**
 
 用于 Linux 的本地非阻塞传输。Netty为Linux提供了一组NIO API，其以一种和它本身的设计更加一致的方式使用epoll，并且以一种更加轻量的方式使用中断。
 
 
 
-## ByteBuf
+# ByteBuf
 
 Java NIO 提供了ByteBuffer 作为它的字节容器，但是这个类使用起来过于复杂，而且也有些繁琐。Netty 的ByteBuffer 替代品是ByteBuf，一个强大的实现，既解决了JDK API 的局限性，又为网络应用程序的开发者提供了更好的API。
 
-
-
-
-
-#### Upooled 缓冲区
+**Upooled 缓冲区**
 
 Upooled 工具类提供了静态的辅助方法来创建未池化的 ByteBuf 实例。
 
 
 
-## ChannelHandler
+# ChannelHandler
 
-### Channel 的生命周期
+## Channel 的生命周期
 
 | 状态                | 描述                                               |
 | ------------------- | -------------------------------------------------- |
@@ -365,7 +361,7 @@ Upooled 工具类提供了静态的辅助方法来创建未池化的 ByteBuf 实
 
 ChannelRegistered -> ChannelActive -> ChannelInactive -> ChannelUnregistered
 
-### ChannelHandler 的生命周期
+## ChannelHandler 的生命周期
 
 | 方法            | 描述                                            |
 | --------------- | ----------------------------------------------- |
@@ -373,7 +369,7 @@ ChannelRegistered -> ChannelActive -> ChannelInactive -> ChannelUnregistered
 | handlerRemoved  | 从ChannelPipeline中移除ChannelHandler时被调用   |
 | exceptionCaught | 处理过程中在ChannelPipeline中有错误产生时被调用 |
 
-### ChannelInboundHandler 接口
+## ChannelInboundHandler 接口
 
 处理入站数据以及各种状态变化。
 
@@ -409,7 +405,7 @@ public class SimpleDiscardHandler
 }
 ```
 
-### ChannelOutboundHandler 接口
+## ChannelOutboundHandler 接口
 
 ChannelOutboundHandler 一个强大的功能是可以按需推迟操作或者事件。
 
@@ -426,25 +422,25 @@ ChannelOutboundHandler 一个强大的功能是可以按需推迟操作或者事
 ChannelPromise 是 ChannelFuture 的一个子类，ChannelOutboundHandler 中的大部分方法都需要一个 ChannelPromise参数，以便在操作完成时得到通知。
 
 
-### ChannelHandlerAdapter
+## ChannelHandlerAdapter
 
 ChannelHandlerAdapter 提供了实用方法 isSharable()，如果其对应的实现被标注成 @Sharable，那么这个方法将返回true，表示它可以被添加到多个 ChannelPipeline 中。
 
 共享 ChannelHandler 一个常见的用途是用于收集跨越多个 channel 的统计信息。
 
-### 资源管理
+## 资源管理
 
 idea 配置 edit configuration -- vm options --  `-Dio.netty.leakDetectionLevel=ADVANCED `
 
 
 
-## ChannelPipeline 接口
+# ChannelPipeline 接口
 
 每一个新创建的 Channel 都将会被分配一个新的 ChannelPipeline，这项关联是永久性的；Channel 既不能附加另外一个ChannelPipeline，也不能分离其当前的。
 
 ChannelHandlerContext 使得 ChannelHandler 能够和它的 ChannelPipeline 以及其他的 ChannelHandler 交互。
 
-### 修改ChannelPipeline
+## 修改ChannelPipeline
 
 ChannelHandler 可以通过添加、删除或者替换其他的ChannelHandler 来实时地修改ChannelPipeline 的布局。
 
@@ -462,7 +458,7 @@ ChannelPipeline 的用于访问ChannelHandler 的操作：
 | context | 返回和ChannelHandler绑定的ChannelHandlerContext |
 | names   | 返回所有的ChannelHanlder名称                    |
 
-### ChannelHandlerContext 接口
+## ChannelHandlerContext 接口
 
 ChannelHandlerContext 代表了ChannelHandler 和ChannelPipeline 之间的关联，每当有ChannelHandler 添加到ChannelPipeline 中时，都会创建ChannelHandlerContext。
 
@@ -474,7 +470,7 @@ ChannelHandlerContext 代表了ChannelHandler 和ChannelPipeline 之间的关联
 | alloc           | 返回相关联的Channel所配置的ByteBufAllocator                |
 | bind            | 绑定到给定的SocketAddress，并返回ChannelFuture             |
 
-### 异常处理
+## 异常处理
 
 入站异常：在 ChannelInboundHandler 实现 exceptionCaught 方法。
 
@@ -517,9 +513,9 @@ public class OutboundExceptionHandler extends ChannelOutboundHandlerAdapter {
 
 
 
-## EventLoop 和线程模型
+# EventLoop 和线程模型
 
-### EventLoop 接口
+## EventLoop 接口
 
 EventLoop 构建在 java.util.concurrent 和 io.netty.channel 之上。EventLoop 继承了 ScheduledExecutorService。EventLoop 由一个永远不会改变的 Thread 驱动，同时任务可以直接提交给 EventLoop 实现。EventLoop 可能服务于多个 Channel。
 
@@ -527,7 +523,7 @@ Netty4中所有的 io 操作和事件都由 EventLoop 的 Thread 处理。Netty3
 
 Netty 4 中所采用的线程模型，通过在同一个线程中处理某个给定的EventLoop 中所产生的所有事件，解决了这个问题。这提供了一个更加简单的执行体系架构，并且消除了在多个ChannelHandler 中进行同步的需要
 
-### 任务调度
+## 任务调度
 
 使用 EventLoop 调度任务：
 
@@ -555,7 +551,7 @@ ScheduledFuture<?> future = ch.eventLoop().scheduleAtFixedRate(
 }, 60, 60, TimeUnit.SECONDES);
 ```
 
-### 实现细节
+## 实现细节
 
 ![](http://img.dabin-coder.cn/image/netty-eventloop执行逻辑.png)
 
@@ -563,17 +559,17 @@ ScheduledFuture<?> future = ch.eventLoop().scheduleAtFixedRate(
 
 
 
-## 引导
+# 引导
 
 配置 netty 应用程序，使它运行起来。服务器使用一个父 Channel 接受来自客户端的连接，并创建子 Channel 以用于它们之间的通信。客户端只需要一个 Channel 完成所有的网络交互。
 
 引导类是 cloneable 的，在引导类实例上调用 clone() 就可以创建多个具有类似配置或者完全相同配置的 Channel。
 
-### 引导客户端
+## 引导客户端
 
 BootStrap 类被用于客户端或者使用了无连接协议的应用程序中。
 
-### 引导服务器
+## 引导服务器
 
 ![](http://img.dabin-coder.cn/image/ServerBoostrap和ServerChannel.png)
 
@@ -583,7 +579,7 @@ BootStrap 类被用于客户端或者使用了无连接协议的应用程序中�
 
 **handler在初始化时就会执行，而childHandler会在客户端成功connect后才执行。**
 
-### 在引导过程添加多个 ChannelHandler
+## 在引导过程添加多个 ChannelHandler
 
 在 handler 传入 ChannelInitializer 的实现类，重写 initChannel 方法，在这个方法中添加多个 ChannelHandler。
 
@@ -608,7 +604,7 @@ try {
 }
 ```
 
-### 关闭
+## 关闭
 
 关闭 EventLoopGroup，它将处理任何挂起的事件和任务，随后释放所有活动的线程。
 
@@ -620,17 +616,17 @@ future.syncUninterruptibly();
 
 
 
-## 编解码器
+# 编解码器
 
 数据格式转化。编码器操作出站数据，解码器处理入站数据。继承自 ChannelInboundHandlerAdapter。数据编码或者解码完就会被传入 ChannelPipeline 的下一个 ChannelHandler。
 
-### 解码器
+## 解码器
 
 ByteToMessageDecoder、ReplayingDecoder：将字节解码为消息。
 
 MessageToMessageDecoder：将消息解码为另一种消息。
 
-#### 抽象类 ByteToMessageDecoder
+**抽象类 ByteToMessageDecoder**
 
 ```java
 public class ToIntegerDecoder extends ByteToMessageDecoder {
@@ -646,7 +642,7 @@ public class ToIntegerDecoder extends ByteToMessageDecoder {
 
 调用 readInt() 方法前需要验证输入的 ByteBuf 是否具有足够的数据。
 
-#### 抽象类 ReplayingDecoder
+**抽象类 ReplayingDecoder**
 
 类型参数S 指定了用于状态管理的类型，其中Void 代表不需要状态管理。
 
@@ -664,7 +660,7 @@ public class ToIntegerDecoder2 extends ReplayingDecoder<Void> {
 
 并不是所有的ByteBuf 操作都被支持，如果调用了一个不被支持的方法，将会抛出一个UnsupportedOperationException；ReplayingDecoder 稍慢于ByteToMessageDecoder。如果使用ByteToMessageDecoder 不会引入太多的复杂性，那么选用它。
 
-#### 抽象类 MessageToMessageDecoder
+**抽象类 MessageToMessageDecoder**
 
 两种消息格式的转换。
 
@@ -677,15 +673,15 @@ public class IntegerToStringDecoder extends MessageToMessageDecoder<Integer> {
 }
 ```
 
-#### TooLongFrameException 类
+**TooLongFrameException 类**
 
 解码器缓冲大量的数据以至于耗尽可用的内存，可以设置一个最大字节数的阈值，如果超出该阈值，则手动抛出一个TooLongFrameException。
 
-### 编码器
+## 编码器
 
 消息编码为字节；消息编码为消息。
 
-#### 抽象类 MessageToByteEncoder
+**抽象类 MessageToByteEncoder**
 
 ```java
 public class ShortToByteEncoder extends MessageToByteEncoder<Short> {
@@ -697,7 +693,7 @@ public class ShortToByteEncoder extends MessageToByteEncoder<Short> {
 }
 ```
 
-#### 抽象类 MessageToMessageEncoder
+**抽象类 MessageToMessageEncoder**
 
  ```java
 public class IntegerToStringEncoder extends MessageToMessageEncoder<Integer> {
@@ -709,19 +705,19 @@ public class IntegerToStringEncoder extends MessageToMessageEncoder<Integer> {
 }
  ```
 
-### 编解码器类
+## 编解码器类
 
 结合一个解码器和编码器可能会对可重用性造成影响。
 
-#### 抽象类 ByteToMessageCodec
+**抽象类 ByteToMessageCodec**
 
 结合了 ByteToMessageDecoder 和 MessageToByteEncoder。
 
-#### 抽象类 MessageToMessageCodec
+**抽象类 MessageToMessageCodec**
 
 定义：`public abstract class MessageToMessageCodec<INBOUND_IN,OUTBOUND_IN>`
 
-#### CombinedChannelDuplexHandler 类
+**CombinedChannelDuplexHandler 类**
 
 可以实现一个编解码器，而又不必直接扩展抽象的编解码器类。
 
@@ -766,9 +762,9 @@ public class CombinedByteCharCodec extends CombinedChannelDuplexHandler<ByteToCh
 
 
 
-## 预置的 ChannelHandler 和编解码器
+# 预置的 ChannelHandler 和编解码器
 
-### SSL/TLS
+## SSL/TLS
 
 Java 提供了 javax.net.ssl 支持 SSL/TSL，用以实现数据安全。
 
@@ -796,7 +792,7 @@ public class SslChannelInitializer extends ChannelInitializer<Channel> {
 }
 ```
 
-### HTTP/HTTPS 应用程序
+## HTTP/HTTPS 应用程序
 
 完整的 HTTP 请求（FullHttpRequest）包括请求头信息、若干个 HTTPContent 和 LastHttpContent。
 
@@ -808,7 +804,7 @@ HTTP 编解码器：HttpRequestEncoder、HttpResponseEncoder、HttpReqeustDecode
 
 HttpResponseDecoder：将字节解码为 HttpResponse、HttpContent 和 LastHttpContent。
 
-#### 添加 HTTP 支持
+**添加 HTTP 支持**
 
 ```java
 public class HttpPipelineInitializer extends ChannelInitializer<Channel> {
@@ -834,7 +830,7 @@ public class HttpPipelineInitializer extends ChannelInitializer<Channel> {
 
 判断是否是客户端，如果是客户端，则添加 HttpResponseDecoder 对服务器响应进行解码。
 
-#### 聚合 HTTP 消息
+**聚合 HTTP 消息**
 
 由于 HTTP 请求和响应可能由多个部分组成，需要将它们聚合成完整的消息。Netty 提供了一个聚合器，可以将多个消息部分合并成 FullHttpRequest 或者 FullHttpResponse 消息。
 
@@ -866,7 +862,7 @@ HttpServerCodec 里面组合了HttpResponseEncoder和HttpRequestDecoder。
 
 HttpClientCodec 里面组合了HttpRequestEncoder和HttpResponseDecoder。
 
-#### HTTP 压缩
+**HTTP 压缩**
 
 当使用HTTP 时，建议服务器端开启压缩功能以尽可能多地减小传输数据的大小。Netty 为压缩和解压缩提供了ChannelHandler 实现，它们同时支持gzip 和deflate 编码。
 
@@ -896,7 +892,7 @@ public class HttpCompressionInitializer extends ChannelInitializer<Channel> {
 }
 ```
 
-#### HTTPS
+**HTTPS**
 
 启动 HTTPS 只需要将 SslHandler 添加到 ChannelPipeline。
 
@@ -925,7 +921,7 @@ public class HttpsCodecInitializer extends ChannelInitializer<Channel> {
 }
 ```
 
-#### WebSocket
+**WebSocket**
 
 WebSocket 在客户端和服务器之间提供了真正的双向数据交换。
 
@@ -988,7 +984,7 @@ public class WebSocketServerInitializer extends ChannelInitializer<Channel> {
 
 > 要想为WebSocket 添加安全性，只需要将SslHandler 作为第一个ChannelHandler 添加到ChannelPipeline 中。
 
-### 空闲的连接和超时
+## 空闲的连接和超时
 
 用于空闲连接以及超时的 ChannelHandler。
 
@@ -1030,7 +1026,7 @@ public class IdleStateHandlerInitializer extends ChannelInitializer<Channel> {
 
 使用 IdleStateHandler 测试远程节点是否还活着，失活时关闭连接释放资源。
 
-### 基于分隔符的协议
+## 基于分隔符的协议
 
 基于分隔符的协议的解码器
 
@@ -1124,7 +1120,7 @@ public class CmdHandlerInitializer extends ChannelInitializer<Channel> {
 }
 ```
 
-### 基于长度的协议
+## 基于长度的协议
 
 基于长度的协议的解码器：
 
@@ -1156,7 +1152,7 @@ public class LengthBasedInitializer extends ChannelInitializer<Channel> {
 }
 ```
 
-### 写大型数据
+## 写大型数据
 
 当写大型数据到远程节点时，如果连接速度比较慢，数据依然不断的往内存写，可能导致内存耗尽。利用 NIO 的零拷贝特性，可以消除将文件内容从文件系统移动到网络栈的复制过程。应用程序需要做的就是实现一个 FileRegion 的接口。
 
@@ -1175,10 +1171,4 @@ channel.writeAndFlush(region).addListener(
 ```
 
 
-
-
-
-## ctx.write() 和 channel().write() 的区别
-
-https://blog.csdn.net/lalalahaitang/article/details/81563830
 

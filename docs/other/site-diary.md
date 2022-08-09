@@ -4,15 +4,7 @@
 
 ## 更新记录
 
-- 2022.08.07，网站改版
-
-  改版前首页UI：
-
-  ![](http://img.dabin-coder.cn/image/小破站0721.png)
-
-  改版后首页UI：
-
-  ![](http://img.dabin-coder.cn/image/image-20220807174428791.png)
+- 2022.08.07，完善设计模式、Docker、Git部分内容
 
 - 2022.08.02，增加部分场景设计题目
 

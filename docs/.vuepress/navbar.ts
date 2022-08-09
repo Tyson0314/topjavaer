@@ -41,8 +41,8 @@ export default navbar([
                     {text: "SpringMVC面试题", link: "/framework/springmvc.md"},
                     {text: "Mybatis面试题", link: "/framework/mybatis.md"},
                     {text: "SpringBoot面试题", link: "/framework/springboot.md"},
-                    {text: "SpringCloud详解", link: "/framework/springcloud-overview.md"},
-                    {text: "Netty详解", link: "/framework/netty-overview.md"},
+                    {text: "SpringCloud详解", link: "/framework/springcloud/"},
+                    {text: "Netty详解", link: "/framework/netty/"},
                 ]
             },
             {
@@ -173,6 +173,7 @@ export default navbar([
         children: [
             {text: "关于我", link: "/about/introduce.md"},
             {text: "网站日记", link: "/other/site-diary.md"},
+            {text: "联系我", link: "/about/contact.md"},
         ]
     },
 

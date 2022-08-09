@@ -45,6 +45,20 @@ export default sidebar({
             children: getChildren('./docs/tools', 'maven'),
         },
     ],
+    "/framework/netty/": [
+        {
+            title: "Netty基础",
+            collapsable: false,
+            children: getChildren('./docs/framework', 'netty'),
+        },
+    ],
+    "/framework/springcloud/": [
+        {
+            title: "SpringCloud基础",
+            collapsable: false,
+            children: getChildren('./docs/framework', 'springcloud'),
+        },
+    ],
     //'/': "auto", //不能放在数组第一个，否则会导致右侧栏无法使用
     //"/",
     //"/home",
