@@ -30,7 +30,6 @@ projects:
     icon: /assets/img/vuepress-hope-logo.svg
 
 
-footer: '<a href="/other/site-diary.html">关于网站</a>'
 ---
 
 

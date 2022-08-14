@@ -1,6 +1,7 @@
 import {defineUserConfig} from "vuepress";
 import theme from "./theme";
-const { searchPlugin } = require('@vuepress/plugin-search')
+
+const {searchPlugin} = require('@vuepress/plugin-search')
 
 
 export default defineUserConfig({
@@ -12,10 +13,21 @@ export default defineUserConfig({
     theme,
 
     head: [
+        //meta
+        ["meta", { name: "robots", content: "all" }],
+        ["meta", {name: "author", content: "大彬"}],
         [
-            'meta', { name: 'baidu-site-verification', content: 'code-mtJaPDeFwy' },
-            // 'meta', { name: 'google-site-verification', content: 'eGgkbT6uJR-WQeSkhhcB6RbnZ2RtF5poPf1ai-Fgmy8' },
+            "meta",
+            {
+                "http-equiv": "Cache-Control",
+                content: "no-cache, no-store, must-revalidate",
+            },
         ],
+        ["meta", { "http-equiv": "Pragma", content: "no-cache" }],
+        ["meta", { "http-equiv": "Expires", content: "0" }],
+        ['meta', {name: 'baidu-site-verification', content: 'code-mtJaPDeFwy'}],
+        // ['meta', { name: 'google-site-verification', content: 'eGgkbT6uJR-WQeSkhhcB6RbnZ2RtF5poPf1ai-Fgmy8' }],
+        ['meta', {name: 'keywords', content: 'Java, Spring, Mybatis, SpringMVC, Springboot, 编程, 程序员, MySQL, Redis, 系统设计, 分布式, RPC, 高可用, 高并发'}],
         [
             'script', {}, `
 			var _hmt = _hmt || [];

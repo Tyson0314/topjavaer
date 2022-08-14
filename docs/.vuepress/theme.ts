@@ -30,9 +30,12 @@ export default hopeTheme({
     // sidebar
     sidebar: sidebar,
 
-    //footer: "Default footer",
+    displayFooter: true,
 
-    //displayFooter: true,
+    // footer: '<a href="http://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">粤ICP备2022005190号 |</a>' +
+    // '<a href="/other/site-diary.html">关于网站</a>',
+
+    footer: '<a href="http://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">粤ICP备2022005190号</a>',
 
     pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 

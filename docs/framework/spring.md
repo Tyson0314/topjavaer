@@ -695,11 +695,15 @@ public class OrderServiceImpl implements OrderService {
 
 ## Spring怎么解决循环依赖的问题？
 
-构造器注入的循环依赖：Spring处理不了，直接抛出`BeanCurrentlylnCreationException`异常。
+首先，有两种Bean注入的方式。
 
-单例模式下属性注入的循环依赖：通过三级缓存处理循环依赖。 
+构造器注入和属性注入。
 
-非单例循环依赖：无法处理。
+对于构造器注入的循环依赖，Spring处理不了，会直接抛出`BeanCurrentlylnCreationException`异常。
+
+对于属性注入的循环依赖（单例模式下），是通过三级缓存处理来循环依赖的。 
+
+而非单例对象的循环依赖，则无法处理。
 
 下面分析单例模式下属性注入的循环依赖是怎么处理的：
 
