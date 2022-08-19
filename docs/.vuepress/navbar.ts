@@ -17,6 +17,7 @@ export default navbar([
             {text: "简历应该这么写", link: "/campus-recruit/resume.md"},
             {text: "项目经验介绍", link: "/campus-recruit/project-experience.md"},
             {text: "编程语言", link: "/campus-recruit/java-or-golang.md"},
+			{text: "面经总结", link: "/campus-recruit/interview/"},
         ],
     },
     {
@@ -27,11 +28,11 @@ export default navbar([
             {text: "集合", link: "/java/java-collection.md"},
             {text: "并发", link: "/java/java-concurrent.md"},
             {text: "JVM", link: "/java/jvm.md"},
-            {text: "Java8新特性", link: "/java/java8.md"},
+            {text: "Java8", link: "/java/java8"},
         ]
     },
     {
-        text: "框架中间件",
+        text: "框架",
         icon: "framework",
         children: [
             {
@@ -88,42 +89,61 @@ export default navbar([
         ]
     },
     {
-        text: "分布式",
-        icon: "distribute",
-        children: [
-            {text: "全局唯一ID", link: "/distributed/global-unique-id.md"},
-            {text: "分布式锁", link: "/distributed/distributed-lock.md"},
-            {text: "RPC", link: "/distributed/rpc.md"},
-            {text: "微服务", link: "/distributed/micro-service.md"},
-            {text: "分布式事务", link: "/distributed/distributed-transaction.md"},
-        ]
-    },
-    {
-        text: "编程内功",
+        text: "进阶之路",
         icon: "win",
         children: [
-            {text: "设计模式", link: "/advance/design-pattern/"}
-        ]
-    },
-    {
-        text: "场景题&系统设计",
-        icon: "design",
-        children: [
+		    {
+				text: "分布式",
+				icon: "distribute",
+				children: [
+					{text: "全局唯一ID", link: "/distributed/global-unique-id.md"},
+					{text: "分布式锁", link: "/distributed/distributed-lock.md"},
+					{text: "RPC", link: "/distributed/rpc.md"},
+					{text: "微服务", link: "/distributed/micro-service.md"},
+					{text: "分布式事务", link: "/distributed/distributed-transaction.md"},
+				]
+			},
             {
-                text: "海量数据",
-                children: [
-                    {text: "统计不同号码的个数", link: "/mass-data/count-phone-num.md"},
-                    {text: "出现频率最高的100个词", link: "/mass-data/find-hign-frequency-word.md"},
-                ]
-            },
+				text: "设计模式",
+				icon: "win",
+				children: [
+					{text: "设计模式详解", link: "/advance/design-pattern/"},
+				],
+			},
             {
                 text: "系统设计",
                 children: [
                     {text: "扫码登录设计", link: "/system-design/scan-code-login.md"},
                 ]
             },
+			{
+                text: "海量数据",
+                children: [
+                    {text: "统计不同号码的个数", link: "/mass-data/count-phone-num.md"},
+                    {text: "出现频率最高的100个词", link: "/mass-data/find-hign-frequency-word.md"},
+                ]
+            },
         ]
     },
+    //{
+    //    text: "场景题",
+    //    icon: "design",
+    //    children: [
+    //        {
+    //            text: "海量数据",
+    //            children: [
+    //                {text: "统计不同号码的个数", link: "/mass-data/count-phone-num.md"},
+    //                {text: "出现频率最高的100个词", link: "/mass-data/find-hign-frequency-word.md"},
+    //            ]
+    //        },
+    //        {
+    //            text: "系统设计",
+    //            children: [
+    //                {text: "扫码登录设计", link: "/system-design/scan-code-login.md"},
+    //            ]
+    //        },
+    //    ]
+    //},
     {
         text: "工具",
         icon: "tool",

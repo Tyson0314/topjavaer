@@ -59,6 +59,20 @@ export default sidebar({
             children: getChildren('./docs/framework', 'springcloud'),
         },
     ],
+	"/java/java8/": [
+        {
+            title: "java8新特性",
+            collapsable: false,
+            children: getChildren('./docs/java', 'java8'),
+        },
+    ],
+	"/campus-recruit/interview/": [
+        {
+            title: "面经合集",
+            collapsable: false,
+            children: getChildren('./docs/campus-recruit', 'interview'),
+        },
+    ],
     //'/': "auto", //不能放在数组第一个，否则会导致右侧栏无法使用
     //"/",
     //"/home",

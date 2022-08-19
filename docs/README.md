@@ -17,7 +17,7 @@ features:
   - title: Leetcode算法笔记
     icon: note
     details: 谷歌师兄整理的Leetcode算法笔记
-    link: https://www.topjavaer.cn/learning-resources/leetcode-note.html
+    link: learning-resources/leetcode-note.html
 projects:
   - name: java-books
     desc: 经典计算机书籍电子版
@@ -26,7 +26,7 @@ projects:
 
   - name: Leetcode算法手册
     desc: Leetcode算法手册
-    link: https://www.topjavaer.cn/learning-resources/leetcode-note.html
+    link: learning-resources/leetcode-note.html
     icon: /assets/img/vuepress-hope-logo.svg
 
 

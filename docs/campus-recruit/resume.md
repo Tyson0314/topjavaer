@@ -132,5 +132,5 @@ sidebar: heading
 
 另外，大彬精心整理了**23套精美简历模板**，有需要的小伙伴可以自行下载：
 
-https://mp.weixin.qq.com/s?__biz=Mzg2OTY1NzY0MQ==&mid=2247489358&idx=1&sn=dd1b91f115438c29a4215c674b8761e4&chksm=ce98ea08f9ef631e2c8361269f28c01db73eca1ff5b91ba0a0ec8c9a6b9fdcb46a5e16c57020#rd
+[23套精美简历模板](https://mp.weixin.qq.com/s?__biz=Mzg2OTY1NzY0MQ==&mid=2247489358&idx=1&sn=dd1b91f115438c29a4215c674b8761e4&chksm=ce98ea08f9ef631e2c8361269f28c01db73eca1ff5b91ba0a0ec8c9a6b9fdcb46a5e16c57020#rd)
 

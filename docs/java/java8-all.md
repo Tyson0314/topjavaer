@@ -2,7 +2,7 @@
 sidebar: heading
 ---
 
-## 函数式编程
+# 函数式编程
 
 面向对象编程：面向对象的语言，一切皆对象，如果想要调用一个函数，函数必须属于一个类或对象，然后在使用类或对象进行调用。面向对象编程可能需要多写很多重复的代码行。
 
@@ -18,7 +18,7 @@ sidebar: heading
 
 函数式编程：在某些编程语言中，如js、c++，我们可以直接写一个函数，然后在需要的时候进行调用，即函数式编程。
 
-## Lambda 表达式
+# Lambda 表达式
 
 在Java8以前，使用`Collections`的sort方法对字符串排序的写法：
 
@@ -44,7 +44,7 @@ names.sort((a, b) -> b.compareTo(a)); //简化写法二，省略入参类型，J
 
 可以看到使用lambda表示式之后，代码变得很简短并且易于阅读。
 
-## 函数式接口
+# 函数式接口
 
 Functional Interface：函数式接口，只包含一个抽象方法的接口。只有函数式接口才能缩写成 Lambda 表达式。@FunctionalInterface 定义类为一个函数式接口，如果添加了第二个抽象方法，编译器会立刻抛出错误提示。
 
@@ -69,11 +69,11 @@ public class FunctionalInterfaceTest {
 
 
 
-## 内置的函数式接口
+# 内置的函数式接口
 
 Comparator 和 Runnable，Java 8 为他们都添加了 @FunctionalInterface 注解，以用来支持 Lambda 表达式。
 
-### Predicate 断言
+## Predicate 断言
 
 指定入参类型，并返回 boolean 值的函数式接口。用来组合一个复杂的逻辑判断。
 
@@ -83,7 +83,7 @@ Predicate<String> predicate = (s) -> s.length() > 0;
 predicate.test("dabin"); // true
 ```
 
-### Comparator
+## Comparator
 
 Java8 将 Comparator 升级成函数式接口，可以使用lambda表示式简化代码。
 
@@ -120,7 +120,7 @@ class Person {
 ```
 
 
-### Consumer
+## Consumer
 
 Consumer 接口接收一个泛型参数，然后调用 accept，对这个参数做一系列消费操作。
 
@@ -218,11 +218,11 @@ public class ConsumersTest {
 }
 ```
 
-## Stream
+# Stream
 
 使用 `java.util.Stream` 对一个包含一个或多个元素的集合做各种操作，原集合不变，返回新集合。只能对实现了 `java.util.Collection` 接口的类做流的操作。`Map` 不支持 `Stream` 流。`Stream` 流支持同步执行，也支持并发执行。
 
-### Filter 过滤
+## Filter 过滤
 
 Filter` 的入参是一个 `Predicate，用于筛选出我们需要的集合元素。原集合不变。filter 会过滤掉不符合特定条件的，下面的代码会过滤掉`nameList`中不以大彬开头的字符串。
 
@@ -253,7 +253,7 @@ public class StreamTest {
 }
 ```
 
-### Sorted 排序
+## Sorted 排序
 
 自然排序，不改变原集合，返回排序后的集合。
 
@@ -302,7 +302,7 @@ list.stream().sorted(Comparator.comparing(Student::getAge).reversed());
 list.stream().sorted(Comparator.comparing(Student::getAge));
 ```
 
-### Map 转换
+## Map 转换
 
 将每个字符串转为大写。
 
@@ -331,7 +331,7 @@ public class StreamTest2 {
 }
 ```
 
-### Match 匹配
+## Match 匹配
 
 验证 nameList 中的字符串是否有以`大彬`开头的。
 
@@ -362,7 +362,7 @@ public class StreamTest3 {
 }
 ```
 
-### Count 计数
+## Count 计数
 
 统计 `stream` 流中的元素总数，返回值是 `long` 类型。
 
@@ -395,7 +395,7 @@ public class StreamTest4 {
 }
 ```
 
-### Reduce
+## Reduce
 
 类似拼接。可以实现将 `list` 归约成一个值。它的返回类型是 `Optional` 类型。
 
@@ -427,7 +427,7 @@ public class StreamTest5 {
 ```
 
 
-### flatMap
+## flatMap
 
 flatMap 用于将多个Stream连接成一个Stream。
 
@@ -490,7 +490,7 @@ public class StreamTest7 {
 
 
 
-## Parallel-Streams
+# Parallel-Streams
 
 并行流。`stream` 流是支持**顺序**和**并行**的。顺序流操作是单线程操作，串行化的流无法带来性能上的提升，通常我们会使用多线程来并行执行任务，处理速度更快。
 
@@ -521,7 +521,7 @@ public class StreamTest7 {
 
 
 
-## Map 集合
+# Map 集合
 
 Java8 针对 map 操作增加了一些方法，非常方便
 
@@ -639,7 +639,7 @@ public class MapTest3 {
 
 
 
-## 参考资料
+# 参考资料
 
 `https://juejin.im/post/5c3d7c8a51882525dd591ac7#heading-16`
 

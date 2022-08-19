@@ -234,7 +234,7 @@ private static class IntegerCache {
 }
 ```
 
-这是IntegerCache静态代码块中的一段，默认Integer cache 的下限是-128，上限默认127。当赋值100给Integer时，刚好在这个范围内，所以从cache中取对应的Integer并返回，所以a和b返回的是同一个对象，所以==比较是相等的，当赋值200给Integer时，不在cache 的范围内，所以会new Integer并返回，当然==比较的结果是不相等的。
+这是IntegerCache静态代码块中的一段，默认Integer cache 的下限是-128，上限默认127。当赋值100给Integer时，刚好在这个范围内，所以从cache中取对应的Integer并返回，所以a和b返回的是同一个对象，所以`==`比较是相等的，当赋值200给Integer时，不在cache 的范围内，所以会new Integer并返回，当然`==`比较的结果是不相等的。
 
 ## String 为什么不可变？
 
@@ -268,7 +268,7 @@ String类内部所有的字段都是私有的，也就是被private修饰。而�
 主要有以下几点原因：
 
 1. **线程安全**。同一个字符串实例可以被多个线程共享，因为字符串不可变，本身就是线程安全的。
-2. **支持hash映射和缓存。**因为String的hash值经常会使用到，比如作为 Map 的键，不可变的特性使得 hash 值也不会变，不需要重新计算。
+2. **支持hash映射和缓存**。因为String的hash值经常会使用到，比如作为 Map 的键，不可变的特性使得 hash 值也不会变，不需要重新计算。
 3. **出于安全考虑**。网络地址URL、文件路径path、密码通常情况下都是以String类型保存，假若String不是固定不变的，将会引起各种安全隐患。比如将密码用String的类型保存，那么它将一直留在内存中，直到垃圾收集器把它清除。假如String类不是固定不变的，那么这个密码可能会被改变，导致出现安全隐患。
 3. **字符串常量池优化**。String对象创建之后，会缓存到字符串常量池中，下次需要创建同样的对象时，可以直接返回缓存的引用。
 
@@ -1189,50 +1189,6 @@ Java语言的关键字，变量修饰符，如果用transient声明一个实例�
 Java泛型是JDK 5中引⼊的⼀个新特性， 允许在定义类和接口的时候使⽤类型参数。声明的类型参数在使⽤时⽤具体的类型来替换。
 
 泛型最⼤的好处是可以提⾼代码的复⽤性。以List接口为例，我们可以将String、 Integer等类型放⼊List中， 如不⽤泛型， 存放String类型要写⼀个List接口， 存放Integer要写另外⼀个List接口， 泛型可以很好的解决这个问题。
-
-## String为什么不可变？
-
-先看看什么是不可变的对象。
-
-如果一个对象，在它创建完成之后，不能再改变它的状态，那么这个对象就是不可变的。
-
-不能改变状态的意思是，不能改变对象内的成员变量，包括基本数据类型的值不能改变，引用类型的变量不能指向其他的对象，引用类型指向的对象的状态也不能改变。
-
-接着来看Java8 String类的源码：
-
-```java
-public final class String
-    implements java.io.Serializable, Comparable<String>, CharSequence {
-    / The value is used for character storage. */
-    private final char value[];
-
-    / Cache the hash code for the string */
-    private int hash; // Default to 0
-}
-```
-
-从源码可以看出，String对象其实在内部就是一个个字符，存储在这个value数组里面的。
-
-value数组用final修饰，final 修饰的变量，值不能被修改。因此value不可以指向其他对象。
-
-String类内部所有的字段都是私有的，也就是被private修饰。而且String没有对外提供修改内部状态的方法，因此value数组不能改变。
-
-所以，String是不可变的。
-
-那为什么String要设计成不可变的？
-
-主要有以下几点原因：
-
-1. 线程安全。同一个字符串实例可以被多个线程共享，因为字符串不可变，本身就是线程安全的。
-2. 支持hash映射和缓存。因为String的hash值经常会使用到，比如作为 Map 的键，不可变的特性使得 hash 值也不会变，不需要重新计算。
-3. 出于安全考虑。网络地址URL、文件路径path、密码通常情况下都是以String类型保存，假若String不是固定不变的，将会引起各种安全隐患。比如将密码用String的类型保存，那么它将一直留在内存中，直到垃圾收集器把它清除。假如String类不是固定不变的，那么这个密码可能会被改变，导致出现安全隐患。
-4. 字符串常量池优化。String对象创建之后，会缓存到字符串常量池中，下次需要创建同样的对象时，可以直接返回缓存的引用。
-
-既然我们的String是不可变的，那它内部还有很多substring， replace， replaceAll这些操作的方法。
-
-这些方法好像会改变String对象？怎么解释呢？
-
-其实不是的，我们每次调用replace等方法，其实会在堆内存中创建了一个新的对象。然后其value数组引用指向不同的对象。
 
 ## 如何停止一个正在运行的线程？
 
