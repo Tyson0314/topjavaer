@@ -16,7 +16,7 @@ sidebar: heading
 
 大彬：整体流程图如下图。
 
-![](E:\b站\视频素材\图片\二维码扫描\整个流程.png)
+![](http://img.dabin-coder.cn/image/整个流程.png)
 
 大彬：下面分阶段来看看设计原理。
 
@@ -34,7 +34,7 @@ sidebar: heading
 
 这个阶段的交互过程如下图所示。
 
-![](E:\b站\视频素材\图片\二维码扫描\第一阶段.png)
+![](http://img.dabin-coder.cn/image/第一阶段.png)
 
 **2、已扫描待确认阶段**
 

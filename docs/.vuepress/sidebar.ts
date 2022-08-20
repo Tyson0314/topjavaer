@@ -73,6 +73,13 @@ export default sidebar({
             children: getChildren('./docs/campus-recruit', 'interview'),
         },
     ],
+	"/advance/excellent-article": [
+        {
+            title: "优质文章汇总",
+            collapsable: false,
+            children: getChildren('./docs/advance', 'excellent-article'),
+        },
+    ],
     //'/': "auto", //不能放在数组第一个，否则会导致右侧栏无法使用
     //"/",
     //"/home",
