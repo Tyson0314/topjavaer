@@ -162,8 +162,8 @@ export default navbar([
                     {text: "Git详解", link: "/tools/git/"},
                     {text: "Maven详解", link: "/tools/maven/"},
                     {text: "Docker详解", link: "/tools/docker/"},
-                    {text: "Nginx面试题", link: "https://mp.weixin.qq.com/s/SKKEeYxif0wWJo6n57rd6A"},
-                    {text: "Linux常用命令", link: "https://mp.weixin.qq.com/s/GbTaa3_qs1KvgUD3S2307w"},
+                    {text: "Linux常用命令", link: "/tools/liunx"},
+					{text: "Nginx面试题", link: "https://mp.weixin.qq.com/s/SKKEeYxif0wWJo6n57rd6A"},
                 ]
             },
             {

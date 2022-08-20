@@ -80,6 +80,13 @@ export default sidebar({
             children: getChildren('./docs/advance', 'excellent-article'),
         },
     ],
+    "/tools/linux/": [
+        {
+            title: "linux常用命令",
+            collapsable: false,
+            children: getChildren('./docs/tools', 'linux'),
+        },
+    ],
     //'/': "auto", //不能放在数组第一个，否则会导致右侧栏无法使用
     //"/",
     //"/home",
