@@ -29,6 +29,8 @@ export default hopeTheme({
 
     // sidebar
     sidebar: sidebar,
+	headerDepth: 5,
+	collapsable: true,
 
     displayFooter: true,
 

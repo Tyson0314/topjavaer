@@ -4,7 +4,7 @@ const {getChildren} = require("./vuepress-sidebar-auto/vuepress-sidebar-auto");
 
 export default sidebar({
     "/database/mysql-basic/": [{
-        title: "MySQL基础",
+        text: "MySQL基础",
         collapsable: false,
         children: getChildren('./docs/database', 'mysql-basic'),
         // children: ["1-data-type"],
@@ -12,77 +12,78 @@ export default sidebar({
     ],
     "/redis/redis-basic/": [
         {
-            title: "Redis基础",
+            text: "Redis基础",
             collapsable: false,
             children: getChildren('./docs/redis', 'redis-basic'),
         },
     ],
     "/advance/design-pattern/": [
         {
-            title: "设计模式",
+            text: "设计模式",
             collapsable: false,
             children: getChildren('./docs/advance', 'design-pattern'),
         },
     ],
     "/tools/docker/": [
         {
-            title: "Docker基础",
+            text: "Docker基础",
             collapsable: false,
             children: getChildren('./docs/tools', 'docker'),
         },
     ],
     "/tools/git/": [
         {
-            title: "Git基础",
+            text: "Git基础",
             collapsable: false,
             children: getChildren('./docs/tools', 'git'),
         },
     ],
     "/tools/maven/": [
         {
-            title: "Maven基础",
+            text: "Maven基础",
             collapsable: false,
             children: getChildren('./docs/tools', 'maven'),
         },
     ],
     "/framework/netty/": [
         {
-            title: "Netty基础",
+            text: "Netty基础",
             collapsable: false,
             children: getChildren('./docs/framework', 'netty'),
         },
     ],
     "/framework/springcloud/": [
         {
-            title: "SpringCloud基础",
+            text: "SpringCloud基础",
             collapsable: false,
             children: getChildren('./docs/framework', 'springcloud'),
         },
     ],
 	"/java/java8/": [
         {
-            title: "java8新特性",
+            text: "java8新特性",
             collapsable: false,
             children: getChildren('./docs/java', 'java8'),
         },
     ],
 	"/campus-recruit/interview/": [
         {
-            title: "面经合集",
-            collapsable: false,
+            text: "面经合集",
+            headerDepth: 5,
+			collapsable: true,
             children: getChildren('./docs/campus-recruit', 'interview'),
         },
     ],
 	"/advance/excellent-article": [
         {
-            title: "优质文章汇总",
+            text: "优质文章汇总",
             collapsable: false,
             children: getChildren('./docs/advance', 'excellent-article'),
         },
     ],
     "/tools/linux/": [
         {
-            title: "linux常用命令",
+            text: "linux常用命令",
             collapsable: false,
             children: getChildren('./docs/tools', 'linux'),
         },

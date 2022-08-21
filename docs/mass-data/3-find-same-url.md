@@ -1,3 +1,7 @@
+---
+sidebar: heading
+---
+
 # 查找两个大文件共同的URL
 
 ## 题目

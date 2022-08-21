@@ -10,8 +10,10 @@ export default navbar([
         icon: "home",
     },
     {
-        text: "秋招",
+        text: "校招",
         icon: "campus",
+		headerDepth: 3,
+		collapsable: true,
         children: [
             {text: "秋招内推", link: "https://docs.qq.com/sheet/DYW9ObnpobXNRTXpq"},
             {text: "简历应该这么写", link: "/campus-recruit/resume.md"},
