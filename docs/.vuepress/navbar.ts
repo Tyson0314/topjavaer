@@ -16,7 +16,7 @@ export default navbar([
             {text: "秋招内推", link: "https://docs.qq.com/sheet/DYW9ObnpobXNRTXpq"},
             {text: "简历应该这么写", link: "/campus-recruit/resume.md"},
             {text: "项目经验介绍", link: "/campus-recruit/project-experience.md"},
-            {text: "编程语言", link: "/campus-recruit/java-or-golang.md"},
+            {text: "编程语言", link: "/campus-recruit/program-language"},
 			{text: "面经总结", link: "/campus-recruit/interview/"},
         ],
     },

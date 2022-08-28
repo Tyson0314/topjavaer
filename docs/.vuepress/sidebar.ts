@@ -69,7 +69,6 @@ export default sidebar({
 	"/campus-recruit/interview/": [
         {
             text: "面经合集",
-            headerDepth: 5,
 			collapsable: true,
             children: getChildren('./docs/campus-recruit', 'interview'),
         },
@@ -86,6 +85,13 @@ export default sidebar({
             text: "linux常用命令",
             collapsable: false,
             children: getChildren('./docs/tools', 'linux'),
+        },
+    ],
+	"/campus-recruit/program-language/": [
+        {
+            text: "编程语言",
+			collapsable: true,
+            children: getChildren('./docs/campus-recruit', 'program-language'),
         },
     ],
     //'/': "auto", //不能放在数组第一个，否则会导致右侧栏无法使用
