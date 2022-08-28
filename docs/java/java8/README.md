@@ -1,5 +1,5 @@
 
-## 目录
+## Java8总结
 
 - [函数式编程](./1-functional-program.md)
 - [Lambda表达式](./2-lambda.md)

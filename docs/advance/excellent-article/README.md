@@ -1,7 +1,7 @@
 
 
 
-## 目录
+## 优质文章汇总
 
 - [Redis如何实现库存扣减操作和防止被超卖？](./1-redis-stock-minus.md)
 - [@Transactional事务注解详解](./2-spring-transaction.md)

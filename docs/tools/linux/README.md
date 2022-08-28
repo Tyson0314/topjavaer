@@ -3,7 +3,7 @@
 > 来源：siye1982.github.io/2016/02/25/linux-list
 
 
-## 目录
+## Linux基础命令
 
 - [基本操作](./1-basic.md)
 - [磁盘,文件,目录相关操作](./2-disk-file.md)

@@ -10,7 +10,7 @@ star: true
 
 ![](http://img.dabin-coder.cn/image/MySQL知识点总结.jpg)
 
-## 目录
+## MySQL基础总结
 
 - [数据类型](./1-data-type.md)
 - [基本命令](./2-basic-command.md)

@@ -8,7 +8,7 @@ star: true
 
 ![](http://img.dabin-coder.cn/image/maven-img.png)
 
-## 目录
+## Maven总结
 
 - [简介](./1-introduce.md)
 - [入门](./2-basic.md)

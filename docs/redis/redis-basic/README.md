@@ -10,7 +10,7 @@ star: true
 
 ![](http://img.dabin-coder.cn/image/Redis知识点.jpg)
 
-## 目录
+## Redis总结
 
 - [简介](./1-introduce.md)
 - [数据类型](./2-data-type.md)

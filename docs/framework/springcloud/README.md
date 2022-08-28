@@ -7,7 +7,7 @@ star: true
 ---
 
 
-## 目录
+## SpringCloud总结
 
 - [基础知识](./1-basic.md)
 - [说说对SpringBoot和SpringCloud的理解](./2-springboot-springcloud-diff.md)

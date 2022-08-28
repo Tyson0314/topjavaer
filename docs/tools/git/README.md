@@ -8,7 +8,7 @@ star: true
 
 ![](http://img.dabin-coder.cn/image/git-status.png)
 
-## 目录
+## Git总结
 
 - [Git简介](./1-introduce.md)
 - [Git基础](./2-basic.md)
