@@ -12,8 +12,6 @@ export default navbar([
     {
         text: "校招",
         icon: "campus",
-		headerDepth: 3,
-		collapsable: true,
         children: [
             {text: "秋招内推", link: "https://docs.qq.com/sheet/DYW9ObnpobXNRTXpq"},
             {text: "简历应该这么写", link: "/campus-recruit/resume.md"},
@@ -53,6 +51,7 @@ export default navbar([
                 children: [
                     {text: "消息队列面试题", link: "/message-queue/mq.md"},
                     {text: "RabbitMQ面试题", link: "/message-queue/rabbitmq.md"},
+					{text: "Kafka面试题", link: "/message-queue/kafka.md"},
                 ]
             }
         ]
@@ -164,7 +163,7 @@ export default navbar([
                     {text: "Git详解", link: "/tools/git/"},
                     {text: "Maven详解", link: "/tools/maven/"},
                     {text: "Docker详解", link: "/tools/docker/"},
-                    {text: "Linux常用命令", link: "/tools/liunx"},
+                    {text: "Linux常用命令", link: "/tools/linux"},
 					{text: "Nginx面试题", link: "https://mp.weixin.qq.com/s/SKKEeYxif0wWJo6n57rd6A"},
                 ]
             },

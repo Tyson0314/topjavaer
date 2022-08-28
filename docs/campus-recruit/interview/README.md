@@ -9,3 +9,4 @@
 - [美团](./6-meituan.md)
 - [shopee](./7-shopee.md)
 - [京东](./8-jingdong.md)
+- [华为](./9-huawei.md)

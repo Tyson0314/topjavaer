@@ -114,7 +114,7 @@ public class MyJob implements Job {
 
 DelayedQueue 实现工作流程如下图所示
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/WDgZjuyGUn5wvFtnfah8t2yWU2MU20afBRCSmMRN4oQS5CiaTafiaB8JrV5kFG1JmHEPdCNTcYibM8oANseUtHIIQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://img.dabin-coder.cn/image/订单取消1.png)
 
 其中 Poll():获取并移除队列的超时元素，没有则返回空
 
@@ -233,7 +233,7 @@ After 15009 MilliSeconds
 
 先上一张时间轮的图(这图到处都是啦)
 
-[![](https://mmbiz.qpic.cn/mmbiz_jpg/WDgZjuyGUn5wvFtnfah8t2yWU2MU20afpRR01xrtUJ05Mt2AZ74V3oa4BFkiaRdibnLYJeoiaw0KY82XEuww3ZYgQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)](http://mp.weixin.qq.com/s?__biz=Mzg2OTY1NzY0MQ==&mid=2247489295&idx=1&sn=9f82abc8f30b1d05ec7b50f25001e815&chksm=ce98ea49f9ef635f7b6eb0bbd5a22f5d38a113e46290241012e0bd3b5bc3248d773b4be144ee&scene=21#wechat_redirect)
+![](http://img.dabin-coder.cn/image/订单取消2.png)
 
 时间轮算法可以类比于时钟，如上图箭头（指针）按某一个方向按固定频率轮动，每一次跳动称为一个 tick。这样可以看出定时轮由个 3 个重要的属性参数，ticksPerWheel（一轮的 tick 数），tickDuration（一个 tick 的持续时间）以及 timeUnit（时间单位），例如当 ticksPerWheel=60，tickDuration=1，timeUnit=秒，这就和现实中的始终的秒针走动完全类似了。
 
@@ -372,7 +372,7 @@ redis> ZRANGE page_rank 0 -1 WITHSCORES
 
 那么如何实现呢？我们将订单超时时间戳与订单号分别设置为 score 和 member,系统扫描第一个元素判断是否超时，具体如下图所示
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/WDgZjuyGUn5wvFtnfah8t2yWU2MU20afvGoJLFlbY4V04nt5sNEDCvPJGU7XCsOiazJFWzA0d14HEDZ68SQzLWQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://img.dabin-coder.cn/image/订单取消3.png)
 
 ### 实现一
 
@@ -447,7 +447,7 @@ public class AppTest {
 
 此时对应输出如下
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/WDgZjuyGUn5wvFtnfah8t2yWU2MU20afj2VaO6vwBVlhafTvCoZibicwUVFJ8vRt4xHAyeibCvqh50pMyLrNjU0Cw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://img.dabin-coder.cn/image/订单取消4.png)
 
 可以看到，几乎都是 3 秒之后，消费订单。
 
@@ -489,7 +489,7 @@ public class ThreadTest {
 
 输出如下所示
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/WDgZjuyGUn5wvFtnfah8t2yWU2MU20afOjb1fic0x5rhokpOnvF7jwibLknTFx6ia3Bfvg6paIBehPt1HJ9TL8hqw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://img.dabin-coder.cn/image/订单取消5.png)
 
 显然，出现了多个线程消费同一个资源的情况。
 
@@ -575,7 +575,7 @@ public class RedisTest {
 
 输出如下
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/WDgZjuyGUn5wvFtnfah8t2yWU2MU20afuwTdYT51cwStezCibMgwXTtTkgI7pqX7iay6bc6tCZmxlQ69icJl47uWQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://img.dabin-coder.cn/image/订单取消6.png)
 
 可以明显看到 3 秒过后，订单取消了
 
