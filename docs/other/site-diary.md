@@ -8,6 +8,8 @@ sidebar: heading
 
 ## 更新记录
 
+- 2022.08.29，增加海量数据面试题-[如何在100亿数据中找到中位数？](/mass-data/4-find-mid-num.md)，优质文章-[如何保证接口幂等性？](/excellent-article/8-interface-idempotent.md)
+
 - 2022.08.22，增加框架中间件-[Kafka面试题](/message-queue/kafka.md)总结
 
 - 2022.08.21，完善工具-[linux常用命令](/tools/linux/)

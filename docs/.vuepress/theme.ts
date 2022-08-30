@@ -34,15 +34,15 @@ export default hopeTheme({
 
     displayFooter: true,
 
-    // footer: '<a href="http://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">粤ICP备2022005190号 |</a>' +
+    // footer: '<a href="http://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">粤ICP备2022005190号-2 |</a>' +
     // '<a href="/other/site-diary.html">关于网站</a>',
 
-    footer: '<a href="http://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">粤ICP备2022005190号</a>',
+    footer: '<a href="http://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">粤ICP备2022005190号-2</a>',
 
     pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 
     blog: {
-        description: "优质八股文选手",
+        description: "非科班自学转码选手，校招拿了多家互联网大厂offer",
         intro: "https://mp.weixin.qq.com/s/84ZDT5d9TIbnyg-jeRKIIA",
         medias: {
             Github: "https://github.com/Tyson0314",

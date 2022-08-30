@@ -124,6 +124,7 @@ export default navbar([
                     {text: "统计不同号码的个数", link: "/mass-data/1-count-phone-num.md"},
                     {text: "出现频率最高的100个词", link: "/mass-data/2-find-hign-frequency-word.md"},
 					{text: "查找两个大文件共同的URL", link: "/mass-data/3-find-same-url.md"},
+					{text: "如何在100亿数据中找到中位数？", link: "/mass-data/4-find-mid-num.md"},
                 ]
             },
 			{
