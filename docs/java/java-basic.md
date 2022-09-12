@@ -70,6 +70,39 @@ JRE是Java的运行环境，并不是一个开发环境，所以没有包含任�
 
 ![](http://img.dabin-coder.cn/image/20220402230613.png)
 
+## Java程序是编译执行还是解释执行？
+
+先看看什么是编译型语言和解释型语言。
+
+**编译型语言**
+
+在程序运行之前，通过编译器将源程序编译成机器码可运行的二进制，以后执行这个程序时，就不用再进行编译了。
+
+优点：编译器一般会有预编译的过程对代码进行优化。因为编译只做一次，运行时不需要编译，所以编译型语言的程序执行效率高，可以脱离语言环境独立运行。
+
+缺点：编译之后如果需要修改就需要整个模块重新编译。编译的时候根据对应的运行环境生成机器码，不同的操作系统之间移植就会有问题，需要根据运行的操作系统环境编译不同的可执行文件。
+
+**总结**：执行速度快、效率高；依靠编译器、跨平台性差些。
+
+**代表语言**：C、C++、Pascal、Object-C以及Swift。
+
+**解释型语言**
+
+定义：解释型语言的源代码不是直接翻译成机器码，而是先翻译成中间代码，再由解释器对中间代码进行解释运行。在运行的时候才将源程序翻译成机器码，翻译一句，然后执行一句，直至结束。
+
+优点：
+
+1. 有良好的平台兼容性，在任何环境中都可以运行，前提是安装了解释器（如虚拟机）。
+2. 灵活，修改代码的时候直接修改就可以，可以快速部署，不用停机维护。
+
+缺点：每次运行的时候都要解释一遍，性能上不如编译型语言。
+
+总结：解释型语言执行速度慢、效率低；依靠解释器、跨平台性好。
+
+代表语言：JavaScript、Python、Erlang、PHP、Perl、Ruby。
+
+对于Java这种语言，它的**源代码**会先通过javac编译成**字节码**，再通过jvm将字节码转换成**机器码**执行，即解释运行 和编译运行配合使用，所以可以称为混合型或者半编译型。
+
 ## 面向对象和面向过程的区别？
 
 面向对象和面向过程是一种软件开发思想。
@@ -1212,15 +1245,58 @@ Java不支持多继承的原因：
 
 > [Java8 新特性总结]([Java-learning/Java8.md at master · Tyson0314/Java-learning (github.com)](https://github.com/Tyson0314/Java-learning/blob/master/Java/Java8.md))
 
-## 什么是序列化和反序列化？
+## 序列化和反序列化
 
-序列化：把内存中的对象转换为字节序列的过程。
+- 序列化：把对象转换为字节序列的过程称为对象的序列化.
+- 反序列化：把字节序列恢复为对象的过程称为对象的反序列化.
 
-反序列化：把字节序列恢复为Java对象的过程。
+## 什么时候需要用到序列化和反序列化呢?
 
-## 如何实现序列化
+当我们只在本地 JVM 里运行下 Java 实例，这个时候是不需要什么序列化和反序列化的，但当我们需要将内存中的对象持久化到磁盘，数据库中时，当我们需要与浏览器进行交互时，当我们需要实现 RPC 时，这个时候就需要序列化和反序列化了.
 
-实现`Serializable`接口即可。序列化的时候（如`objectOutputStream.writeObject(user)`），会判断user是否实现了`Serializable`，如果对象没有实现`Serializable`接口，在序列化的时候会抛出`NotSerializableException`异常。源码如下：
+前两个需要用到序列化和反序列化的场景，是不是让我们有一个很大的疑问? 我们在与浏览器交互时，还有将内存中的对象持久化到数据库中时，好像都没有去进行序列化和反序列化，因为我们都没有实现 Serializable 接口，但一直正常运行.
+
+下面先给出结论:
+
+**只要我们对内存中的对象进行持久化或网络传输，这个时候都需要序列化和反序列化.**
+
+理由:
+
+服务器与浏览器交互时真的没有用到 Serializable 接口吗? JSON 格式实际上就是将一个对象转化为字符串，所以服务器与浏览器交互时的数据格式其实是字符串，我们来看来 String 类型的源码:
+
+```
+public final class String
+    implements java.io.Serializable，Comparable<String>，CharSequence {
+    /\*\* The value is used for character storage. \*/
+    private final char value\[\];
+
+    /\*\* Cache the hash code for the string \*/
+    private int hash; // Default to 0
+
+    /\*\* use serialVersionUID from JDK 1.0.2 for interoperability \*/
+    private static final long serialVersionUID = -6849794470754667710L;
+
+    ......
+}
+```
+
+String 类型实现了 Serializable 接口，并显示指定 serialVersionUID 的值.
+
+然后我们再来看对象持久化到数据库中时的情况，Mybatis 数据库映射文件里的 insert 代码:
+
+```
+<insert id="insertUser" parameterType="org.tyshawn.bean.User">
+    INSERT INTO t\_user(name，age) VALUES (#{name}，#{age})
+</insert>
+```
+
+实际上我们并不是将整个对象持久化到数据库中，而是将对象中的属性持久化到数据库中，而这些属性（如Date/String）都实现了 Serializable 接口。
+
+## 实现序列化和反序列化为什么要实现 Serializable 接口?
+
+在 Java 中实现了 Serializable 接口后， JVM 在类加载的时候就会发现我们实现了这个接口，然后在初始化实例对象的时候就会在底层帮我们实现序列化和反序列化。
+
+如果被写对象类型不是String、数组、Enum，并且没有实现Serializable接口，那么在进行序列化的时候，将抛出NotSerializableException。源码如下：
 
 ```java
 // remaining cases
@@ -1241,6 +1317,20 @@ if (obj instanceof String) {
     }
 }
 ```
+
+## 实现 Serializable 接口之后，为什么还要显示指定 serialVersionUID 的值?
+
+如果不显示指定 serialVersionUID，JVM 在序列化时会根据属性自动生成一个 serialVersionUID，然后与属性一起序列化，再进行持久化或网络传输. 在反序列化时，JVM 会再根据属性自动生成一个新版 serialVersionUID，然后将这个新版 serialVersionUID 与序列化时生成的旧版 serialVersionUID 进行比较，如果相同则反序列化成功，否则报错.
+
+如果显示指定了 serialVersionUID，JVM 在序列化和反序列化时仍然都会生成一个 serialVersionUID，但值为我们显示指定的值，这样在反序列化时新旧版本的 serialVersionUID 就一致了.
+
+如果我们的类写完后不再修改，那么不指定serialVersionUID，不会有问题，但这在实际开发中是不可能的，我们的类会不断迭代，一旦类被修改了，那旧对象反序列化就会报错。 所以在实际开发中，我们都会显示指定一个 serialVersionUID。
+
+## static 属性为什么不会被序列化?
+
+因为序列化是针对对象而言的，而 static 属性优先于对象存在，随着类的加载而加载，所以不会被序列化.
+
+看到这个结论，是不是有人会问，serialVersionUID 也被 static 修饰，为什么 serialVersionUID 会被序列化? 其实 serialVersionUID 属性并没有被序列化，JVM 在序列化对象时会自动生成一个 serialVersionUID，然后将我们显示指定的 serialVersionUID 属性值赋给自动生成的 serialVersionUID.
 
 ## transient关键字的作用？
 

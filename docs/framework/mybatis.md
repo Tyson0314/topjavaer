@@ -13,11 +13,16 @@ sidebar: heading
 
 ORM（Object Relational Mapping），对象关系映射，是一种为了解决关系型数据库数据与简单Java对象（POJO）的映射关系的技术。简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将程序中的对象自动持久化到关系型数据库中。
 
-## 为什么说Mybatis是半自动ORM映射工具？它与全自动的区别在哪里？
+## Mybatis和Hibernate的区别？
 
-Hibernate属于全自动ORM映射工具，使用Hibernate查询关联对象或者关联集合对象时，可以根据对象关系模型直接获取，所以它是全自动的。
+主要有以下几点区别：
 
-而Mybatis在查询关联对象或关联集合对象时，需要手动编写sql来完成，所以，称之为半自动ORM映射工具。
+1. Hibernate的**开发难度**大于MyBatis，主要由于Hibernate比较复杂，庞大，学习周期比较长。
+2. Hibernate属于**全自动**ORM映射工具，使用Hibernate查询关联对象或者关联集合对象时，可以根据对象关系模型直接获取，所以它是全自动的。而Mybatis在查询关联对象或关联集合对象时，需要手动编写sql来完成，所以，称之为半自动ORM映射工具。
+3. **数据库扩展性**的区别。Hibernate与数据库具体的关联在XML中，所以HQL对具体是用什么数据库并不是很关心。MyBatis由于所有sql都是依赖数据库书写的，所以扩展性、迁移性比较差。
+4. **缓存机制**的区别。Hibernate的二级缓存配置在SessionFactory生成配置文件中进行详细配置，然后再在具体的表对象映射中配置那种缓存。MyBatis的二级缓存配置都是在每个具体的表对象映射中进行详细配置，这样针对不同的表可以自定义不同的缓冲机制，并且MyBatis可以在命名空间中共享相同的缓存配置和实例，通过Cache-ref来实现。
+5. **日志系统完善性**的区别。Hibernate日志系统非常健全，涉及广泛，而Mybatis则除了基本记录功能外，功能薄弱很多。
+6. **sql的优化上，Mybatis要比Hibernate方便很多**。由于Mybatis的sql都是写在xml里，因此优化sql比Hibernate方便很多。而Hibernate的sql很多都是自动生成的，无法直接维护sql；总之写sql的灵活度上Hibernate不及Mybatis。
 
 ## MyBatis框架的优缺点及其适用的场合
 

@@ -8,7 +8,15 @@ sidebar: heading
 
 ## 更新记录
 
-- 2022.08.29，增加海量数据面试题-[如何在100亿数据中找到中位数？](/mass-data/4-find-mid-num.md)，优质文章-[如何保证接口幂等性？](/excellent-article/8-interface-idempotent.md)
+- 2022.09.09，增加框架-[SpringCloud面试题](/framework/springcloud-interview.md)
+
+- 2022.09.05，增加优质文章-[大文件上传时如何做到秒传？](/advance/excellent-article/10-file-upload.md)
+
+- 2022.09.04，增加[留言区](/other/leave-a-message.md)，[网易面经汇总](/campus-recruit/interview/10-netease.md)
+
+- 2022.09.03，增加优质文章-[美团面试：熟悉哪些JVM调优参数？](/advance/excellent-article/9-jvm-optimize-param.md)
+
+- 2022.08.29，增加海量数据面试题-[如何在100亿数据中找到中位数？](/mass-data/4-find-mid-num.md)，优质文章-[如何保证接口幂等性？](/advance/excellent-article/8-interface-idempotent.md)
 
 - 2022.08.22，增加框架中间件-[Kafka面试题](/message-queue/kafka.md)总结
 
