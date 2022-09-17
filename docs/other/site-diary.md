@@ -8,6 +8,10 @@ sidebar: heading
 
 ## 更新记录
 
+- 2022.09.16，增加高并发-[限流算法](/advance/concurrent/1-current-limiting.md)，[负载均衡](/advance/concurrent/2-load-balance.md)
+
+- 2022.09.15，增加海量数据面试题-[如何查询最热门的查询串？](/mass-data/5-find-hot-string.md)
+
 - 2022.09.09，增加框架-[SpringCloud面试题](/framework/springcloud-interview.md)
 
 - 2022.09.05，增加优质文章-[大文件上传时如何做到秒传？](/advance/excellent-article/10-file-upload.md)

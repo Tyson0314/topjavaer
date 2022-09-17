@@ -105,6 +105,13 @@ export default navbar([
 					{text: "分布式事务", link: "/distributed/distributed-transaction.md"},
 				]
 			},
+		    {
+				text: "高并发",
+				children: [
+					{text: "限流", link: "/advance/concurrent/1-current-limiting.md"},
+					{text: "负载均衡", link: "/advance/concurrent/2-load-balance.md"},
+				],
+			},
             {
 				text: "设计模式",
 				icon: "win",

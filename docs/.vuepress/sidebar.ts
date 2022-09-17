@@ -80,6 +80,13 @@ export default sidebar({
             children: getChildren('./docs/advance', 'excellent-article'),
         },
     ],
+	"/advance/concurrent": [
+        {
+            text: "高并发",
+            collapsable: false,
+            children: getChildren('./docs/advance', 'concurrent'),
+        },
+    ],
     "/tools/linux/": [
         {
             text: "linux常用命令",
